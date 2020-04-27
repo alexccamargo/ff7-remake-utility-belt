@@ -1,14 +1,23 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 
-function App() {
+import CharactersPage from './pages/CharactersPage'
+
+const App = () => {
   return (
-    <div>
-      <header>
-        Final Fantasy 7 Remake Utility Belt
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route exact path="/" component={CharactersPage} />
+        <Route exact path="/characters" component={CharactersPage} />
+        <Redirect to="/" />
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App
