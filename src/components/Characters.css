@@ -1,0 +1,13 @@
+.character-tile {
+    max-width: 150px;
+    margin-bottom: 16px;
+    padding: 8px;
+}
+
+.character-tile  img {
+    max-width: 100%;
+}
+
+.character-tile div {
+    text-align: center;
+}

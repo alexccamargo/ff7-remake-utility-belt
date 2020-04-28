@@ -11,10 +11,10 @@ export const getCharactersSuccess = CHARACTERS => ({
 export const getCharactersFailure = () => ({ type: GET_CHARACTERS_FAILURE })
 
 const data = [
-  {key: "a", name: "Aerith" },
-  {key: "b", name: "Baret"}, 
-  {key: "c", name: "Cloud"}, 
-  {key: "t", name: "Tifa"}];
+  {key: "a", name: "Aerith", image: "/img/aerith.png"},
+  {key: "b", name: "Baret", image: "/img/barret.jpeg"}, 
+  {key: "c", name: "Cloud", image: "/img/cloud.png"}, 
+  {key: "t", name: "Tifa", image: "/img/tifa.jpg"}];
 
 export function fetchCharacters() {
   return async dispatch => {
