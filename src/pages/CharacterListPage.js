@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import { fetchCharacters } from '../actions/charactersActions'
 
-import { Characters } from '../components/Characters'
+import { CharacterList } from '../components/CharacterList'
 
-const CharactersPage = ({
+const CharacterListPage = ({
   dispatch,
   characters,
   hasErrors,
@@ -16,10 +16,10 @@ const CharactersPage = ({
   }, [dispatch])
 
   const renderCharacters = () => {
-    if (loading.post) return <p>Loading characters...</p>
-    if (hasErrors.post) return <p>Unable to display characters.</p>
+    if (loading.characters) return <p>Loading characters...</p>
+    if (hasErrors.characters) return <p>Unable to display characters.</p>
 
-    return <Characters characters={characters}></Characters>
+    return <CharacterList characters={characters}></CharacterList>
   }
 
   return (
@@ -35,4 +35,4 @@ const mapStateToProps = state => ({
   hasErrors: { characters: state.characters.hasErrors },
 })
 
-export default connect(mapStateToProps)(CharactersPage)
+export default connect(mapStateToProps)(CharacterListPage)

@@ -1,6 +1,13 @@
+.character-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 115px;
+}
+
 .character-tile {
     max-width: 150px;
-    margin-bottom: 16px;
+    height: 100%;
     padding: 8px;
 }
 
