@@ -16,48 +16,77 @@ const data = [
     name: "Aerith",
     image: "/img/aerith.png",
     weapons: [
-      { 
-        id: "wa1", name: "Guard Stick", attackPower:10, magicAttackPower:7, defense: 5, magicDefense:6,
-        cores: [ 
+      {
+        id: "wa1", name: "Guard Stick", 
+        attackPower: 29, magicAttackPower: 43, defense: 0, magicDefense: 0, materia: 2, connection: 0,
+        cores: [
           {
             id: "wa1c1",
-            name: "Core 1",
-            cost: 6,
+            name: "Guard Stick Core",
+            cost: 8,
             effects: [
-              {
-                id: "wac1e1",
-                type: "AP",
-                name: "Attack Power",
-                value: "6",
-              },
-              {
-                id: "wac1e2",
-                type: "MAP",
-                name: "Magic Attack Power",
-                value: "6",
-              },
+              { id: "wac1e1", type: "MAP", value: "12" },
+              { id: "wac1e2", type: "DEF", value: "7" },
+              { id: "wac1e3", type: "MDEF", value: "7" },
+              { id: "wac1e4", type: "MAXHP", value: "150" },
+              { id: "wac1e5", type: "MAXMP", value: "8" },
             ]
           },
           {
             id: "wa1c2",
-            name: "Core 2",
+            name: "Guard Stick Sub-Core I",
+            cost: 10,
+            effects: [
+              { id: "wac2e1", type: "AD%B", value: "5" },
+              { id: "wac2e2", type: "TD%B", value: "5" },
+              { id: "wac2e3", type: "PDR%G", value: "10" },
+              { id: "wac2e4", type: "MDR%G", value: "10" },
+              { id: "wac2e5", type: "MAT", },
+            ]
+          },
+          {
+            id: "wa1c3",
+            name: "Guard Stick Sub-Core II",
+            cost: 12,
+            effects: [
+              { id: "wac3e1", type: "MAP", value: "18" },
+              { id: "wac3e2", type: "MAXHP", value: "150" },
+              { id: "wac3e3", type: "MAXMP", value: "8" },
+              { id: "wac3e4", type: "MPR%B", value: "10" },
+              { id: "wac3e5", type: "MAT", },
+              { id: "wac3e6", type: "MAT", },
+            ]
+          },
+          {
+            id: "wa1c4",
+            name: "Guard Stick Sub-Core III",
+            cost: 14,
+            effects: [
+              { id: "wac4e1", type: "MAP", value: "18" },
+              { id: "wac4e2", type: "MAXHP", value: "150" },
+              { id: "wac4e3", type: "MAXMP", value: "8" },
+              { id: "wac4e4", type: "ED%B", value: "5" },
+              { id: "wac4e5", type: "HSMPCR%", value: "20" },
+              { id: "wac4e6", type: "MAT", },
+              { id: "wac4e7", type: "MAT", },
+            ]
+          },
+          {
+            id: "wa1c5",
+            name: "Guard Stick Sub-Core IV",
             cost: 16,
             effects: [
-              {
-                id: "wac2e1",
-                effect: "Attack Power",
-                value: "12"
-              },
-              {
-                id: "wac2e2",
-                effect: "Magic Attack Power",
-                value: "12"
-              },
+              { id: "wac4e1", type: "MAP", value: "18" },
+              { id: "wac4e2", type: "MAXHP", value: "200" },
+              { id: "wac4e3", type: "MAXMP", value: "10" },
+              { id: "wac4e4", type: "REPRIEVE", },
+              { id: "wac4e5", type: "MAT", },
+              { id: "wac4e6", type: "MAT", },
             ]
           }
         ]
-     },
-      { id: "wa2", name: "Silver Staff", attackPower:14, magicAttackPower: 10},
+      },
+      { id: "wa2", name: "Silver Staff", attackPower: 14, magicAttackPower: 10 },
       { id: "wa3", name: "Arcane Scepter", },
       { id: "wa4", name: "Mythril Rod", },
       { id: "wa5", name: "Bladed Staff", },

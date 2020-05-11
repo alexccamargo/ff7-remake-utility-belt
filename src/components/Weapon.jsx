@@ -12,6 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Switch from '@material-ui/core/Switch';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { effectFactory } from '../models/effect';
 
 import './Weapon.css'
 
@@ -29,18 +30,13 @@ export const Weapon = (props) => {
 
     const character = props.character
     const weapon = (character.weapons || []).find(w => w.id === props.selectedWeapon)
-    const effects = (weapon.cores || []).flatMap(c => c.effects)
+    const effects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, effectFactory(e)]))
 
     const [selectedEffect, setSelectedEffect] = useState([]);
-
-    // let selectedEffect = []
-
-
 
     const handleToggle = (event) => {
         let newEffectList = [...selectedEffect];
         if (!event.target.checked) {
-            // selectedEffect = selectedEffect.filter(se => se !== event.target.name)
             newEffectList = newEffectList.filter(se => se !== event.target.name)
         } else {
             newEffectList.push(event.target.name)
@@ -55,25 +51,28 @@ export const Weapon = (props) => {
         return (
             <List className={classes.listRoot}>
                 {
-                    core.effects.map(e => (
-                        <ListItem key={e.id}>
-                            <ListItemText id={`lable-${e.id}`} primary={e.name} />
-                            <ListItemSecondaryAction>
-                                <Switch
-                                    edge="end"
-                                    onChange={handleToggle}
-                                    name={e.id}
-                                    checked={selectedEffect[e.id]}
-                                    inputProps={{ 'aria-labelledby': `lable-${e.id}` }}
-                                />
-                            </ListItemSecondaryAction>
-                        </ListItem>
-                    ))
+                    core.effects.map(e => {
+                        const effect = effects.get(e.id) || {}
+
+                        return (
+                            <ListItem key={effect.id}>
+                                <ListItemText id={`lable-${effect.id}`} primary={effect.name} />
+                                <ListItemSecondaryAction>
+                                    <Switch
+                                        edge="end"
+                                        onChange={handleToggle}
+                                        name={effect.id}
+                                        checked={selectedEffect[effect.id]}
+                                        inputProps={{ 'aria-labelledby': `lable-${effect.id}` }}
+                                    />
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                        )
+                    })
                 }
             </List>
         );
     }
-
 
     const renderCores = () => {
         if (!weapon.cores)
@@ -99,27 +98,21 @@ export const Weapon = (props) => {
     }
 
     const calculateStats = (selectedEffect) => {
-        const stats = {
+        let stats = {
             attackPower: weapon.attackPower,
             magicAttackPower: weapon.magicAttackPower,
             defense: weapon.defense,
             magicDefense: weapon.magicDefense
         }
 
-        effects.forEach((effect) => {
-            if (selectedEffect.includes(effect.id)) {
-                console.log("Here", effect);
-                if (effect.type === "AP") {
-                    stats.attackPower += parseInt(effect.value)
-                }
-            }
+        selectedEffect.forEach((effect) => {
+            stats = effects.get(effect).applyEffect(stats)
         });
 
         return stats;
     }
 
     const renderWeaponStats = (selectedEffect) => {
-        console.log("Heaaaaa")
         const stats = calculateStats(selectedEffect);
         return (
             <table className="weapon-stats">
