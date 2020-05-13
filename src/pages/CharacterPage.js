@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import { fetchCharacters } from '../actions/charactersActions'
 import { useParams } from 'react-router';
-import { Character } from '../components/Character';
+import Character from '../components/Character';
+import { translate } from 'react-i18next';
 
 const CharacterPage = ({
   dispatch,
@@ -41,4 +42,4 @@ const mapStateToProps = state => ({
   hasErrors: { characters: state.characters.hasErrors },
 })
 
-export default connect(mapStateToProps)(CharacterPage)
+export default connect(mapStateToProps)(translate()(CharacterPage))

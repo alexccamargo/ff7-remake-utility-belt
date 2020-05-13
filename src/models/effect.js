@@ -17,7 +17,6 @@ const REPRIEVE = "REPRIEVE";
 
 
 export const effectFactory = (effect) => {
-    console.log(effect);
     const id = effect.id;
     switch (effect.type) {
         case ATTACK_POWER:

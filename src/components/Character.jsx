@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { translate } from 'react-i18next';
 
-export const Character = (props) => {
-    const character = props.character
+const Character = ({ character, t }) => {
     const weapons = character.weapons
 
     const renderWeaponLinks = () => {
@@ -23,10 +23,12 @@ export const Character = (props) => {
 
     return (
         <div>
-            <h1>{character.name}</h1>
+            <h1>{t(`character.${character.id}`)}</h1>
             <ul>
                 {renderWeaponLinks()}
             </ul>
         </div>
     )
 }
+
+export default translate()(Character);

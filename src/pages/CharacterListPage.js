@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { translate } from 'react-i18next'
 
 import { fetchCharacters } from '../actions/charactersActions'
-
-import { CharacterList } from '../components/CharacterList'
+import CharacterList from '../components/CharacterList'
 
 const CharacterListPage = ({
   dispatch,
@@ -35,4 +35,4 @@ const mapStateToProps = state => ({
   hasErrors: { characters: state.characters.hasErrors },
 })
 
-export default connect(mapStateToProps)(CharacterListPage)
+export default connect(mapStateToProps)(translate()(CharacterListPage))

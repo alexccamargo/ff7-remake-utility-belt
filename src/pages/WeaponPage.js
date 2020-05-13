@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { fetchCharacters } from '../actions/charactersActions'
 import { useParams } from 'react-router';
-import { Weapon } from '../components/Weapon';
+import Weapon from '../components/Weapon';
 
 const CharacterPage = ({
   dispatch,

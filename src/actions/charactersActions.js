@@ -13,7 +13,6 @@ export const getCharacterListFailure = () => ({ type: GET_CHARACTER_LIST_FAILURE
 const data = [
   {
     id: "a",
-    name: "Aerith",
     image: "/img/aerith.png",
     weapons: [
       {
@@ -95,7 +94,6 @@ const data = [
   },
   {
     id: "b",
-    name: "Baret",
     image: "/img/barret.jpeg",
     weapons: [
       { id: "wb1", name: "Gatling Gun" },
@@ -107,7 +105,6 @@ const data = [
   },
   {
     id: "c",
-    name: "Cloud",
     image: "/img/cloud.png",
     weapons: [
       { id: "wc1", name: "Buster Sword" },
@@ -120,7 +117,6 @@ const data = [
   },
   {
     id: "t",
-    name: "Tifa",
     image: "/img/tifa.jpg",
     weapons: [
       { id: "wt1", name: "Leather Gloves" },

@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { effectFactory } from '../models/effect';
 
 import './Weapon.css'
+import { translate } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
     listRoot: {
@@ -25,11 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export const Weapon = (props) => {
+const Weapon = ({character, selectedWeapon, t}) => {
     const classes = useStyles();
 
-    const character = props.character
-    const weapon = (character.weapons || []).find(w => w.id === props.selectedWeapon)
+    const weapon = (character.weapons || []).find(w => w.id === selectedWeapon)
     const effects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, effectFactory(e)]))
 
     const [selectedEffect, setSelectedEffect] = useState([]);
@@ -139,10 +139,12 @@ export const Weapon = (props) => {
 
     return (
         <div>
-            <h1>{character.name}</h1>
+            <h1>{t(`character.${character.id}`)}</h1>
             <h2>{weapon.name}</h2>
             {renderWeaponStats(selectedEffect)}
             {renderCores()}
         </div>
     )
 }
+
+export default translate()(Weapon)
