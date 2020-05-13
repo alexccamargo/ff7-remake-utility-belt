@@ -12,7 +12,7 @@ const Character = ({ character, t }) => {
                     weapons.map(w => (
                         <li key={w.id}>
                             <Link to={`/character/${character.id}/weapon/${w.id}`}>
-                                {w.name}
+                            {t(`weapon.${character.id}.${w.id}.name`)}
                             </Link>
                         </li>
                     ))

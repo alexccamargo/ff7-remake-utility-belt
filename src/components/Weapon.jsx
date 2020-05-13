@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Weapon = ({character, selectedWeapon, t}) => {
+const Weapon = ({ character, selectedWeapon, t }) => {
     const classes = useStyles();
 
     const weapon = (character.weapons || []).find(w => w.id === selectedWeapon)
@@ -56,7 +56,7 @@ const Weapon = ({character, selectedWeapon, t}) => {
 
                         return (
                             <ListItem key={effect.id}>
-                                <ListItemText id={`lable-${effect.id}`} primary={effect.name} />
+                                <ListItemText id={`lable-${effect.id}`} primary={t(`effects.${effect.type}`, { value: effect.value })} />
                                 <ListItemSecondaryAction>
                                     <Switch
                                         edge="end"
@@ -86,7 +86,7 @@ const Weapon = ({character, selectedWeapon, t}) => {
                         aria-controls={core.id}
                         id={core.id}
                     >
-                        {core.name}
+                        {t(`weapon.${character.id}.${weapon.id}.core.${core.id}`)}
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         {renderEffects(core)}
@@ -140,7 +140,7 @@ const Weapon = ({character, selectedWeapon, t}) => {
     return (
         <div>
             <h1>{t(`character.${character.id}`)}</h1>
-            <h2>{weapon.name}</h2>
+            <h2>{t(`weapon.${character.id}.${weapon.id}.name`)}</h2>
             {renderWeaponStats(selectedEffect)}
             {renderCores()}
         </div>

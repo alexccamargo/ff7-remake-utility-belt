@@ -1,0 +1,272 @@
+[
+    {
+        "id": "a",
+        "image": "/img/aerith.png",
+        "weapons": [
+            {
+                "id": "gs",
+                "attackPower": 29,
+                "magicAttackPower": 43,
+                "defense": 0,
+                "magicDefense": 0,
+                "materia": 2,
+                "connection": 0,
+                "cores": [
+                    {
+                        "id": "c1",
+                        "cost": 8,
+                        "effects": [
+                            {
+                                "id": "e1",
+                                "type": "MAP",
+                                "value": "12"
+                            },
+                            {
+                                "id": "e2",
+                                "type": "DEF",
+                                "value": "7"
+                            },
+                            {
+                                "id": "e3",
+                                "type": "MDEF",
+                                "value": "7"
+                            },
+                            {
+                                "id": "e4",
+                                "type": "MAXHP",
+                                "value": "150"
+                            },
+                            {
+                                "id": "e5",
+                                "type": "MAXMP",
+                                "value": "8"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c2",
+                        "cost": 10,
+                        "effects": [
+                            {
+                                "id": "e1",
+                                "type": "AD%B",
+                                "value": "5"
+                            },
+                            {
+                                "id": "e2",
+                                "type": "TD%B",
+                                "value": "5"
+                            },
+                            {
+                                "id": "e3",
+                                "type": "PDR%G",
+                                "value": "10"
+                            },
+                            {
+                                "id": "e4",
+                                "type": "MDR%G",
+                                "value": "10"
+                            },
+                            {
+                                "id": "e5",
+                                "type": "MAT"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c3",
+                        "cost": 12,
+                        "effects": [
+                            {
+                                "id": "e1",
+                                "type": "MAP",
+                                "value": "18"
+                            },
+                            {
+                                "id": "e2",
+                                "type": "MAXHP",
+                                "value": "150"
+                            },
+                            {
+                                "id": "e3",
+                                "type": "MAXMP",
+                                "value": "8"
+                            },
+                            {
+                                "id": "e4",
+                                "type": "MPR%B",
+                                "value": "10"
+                            },
+                            {
+                                "id": "e5",
+                                "type": "MAT"
+                            },
+                            {
+                                "id": "e6",
+                                "type": "MAT"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c4",
+                        "cost": 14,
+                        "effects": [
+                            {
+                                "id": "e1",
+                                "type": "MAP",
+                                "value": "18"
+                            },
+                            {
+                                "id": "e2",
+                                "type": "MAXHP",
+                                "value": "150"
+                            },
+                            {
+                                "id": "e3",
+                                "type": "MAXMP",
+                                "value": "8"
+                            },
+                            {
+                                "id": "e4",
+                                "type": "ED%B",
+                                "value": "5"
+                            },
+                            {
+                                "id": "e5",
+                                "type": "HSMPCR%",
+                                "value": "20"
+                            },
+                            {
+                                "id": "e6",
+                                "type": "MAT"
+                            },
+                            {
+                                "id": "wac4e7",
+                                "type": "MAT"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c5",
+                        "cost": 16,
+                        "effects": [
+                            {
+                                "id": "e1",
+                                "type": "MAP",
+                                "value": "18"
+                            },
+                            {
+                                "id": "e2",
+                                "type": "MAXHP",
+                                "value": "200"
+                            },
+                            {
+                                "id": "e3",
+                                "type": "MAXMP",
+                                "value": "10"
+                            },
+                            {
+                                "id": "e4",
+                                "type": "REPRIEVE"
+                            },
+                            {
+                                "id": "e5",
+                                "type": "MAT"
+                            },
+                            {
+                                "id": "e6",
+                                "type": "MAT"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "ss",
+                "attackPower": 14,
+                "magicAttackPower": 10
+            },
+            {
+                "id": "as"
+            },
+            {
+                "id": "mr"
+            },
+            {
+                "id": "bs"
+            },
+            {
+                "id": "rs"
+            }
+        ]
+    },
+    {
+        "id": "b",
+        "image": "/img/barret.jpeg",
+        "weapons": [
+            {
+                "id": "gg"
+            },
+            {
+                "id": "lmg"
+            },
+            {
+                "id": "bb"
+            },
+            {
+                "id": "wb"
+            },
+            {
+                "id": "ekg"
+            }
+        ]
+    },
+    {
+        "id": "c",
+        "image": "/img/cloud.png",
+        "weapons": [
+            {
+                "id": "bs"
+            },
+            {
+                "id": "ib"
+            },
+            {
+                "id": "nb"
+            },
+            {
+                "id": "h"
+            },
+            {
+                "id": "ms"
+            },
+            {
+                "id": "ts"
+            }
+        ]
+    },
+    {
+        "id": "t",
+        "image": "/img/tifa.jpg",
+        "weapons": [
+            {
+                "id": "lg"
+            },
+            {
+                "id": "mk"
+            },
+            {
+                "id": "ss"
+            },
+            {
+                "id": "fg"
+            },
+            {
+                "id": "mc"
+            },
+            {
+                "id": "pp"
+            }
+        ]
+    }
+]
