@@ -1,19 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { translate } from 'react-i18next'
 
-import { fetchCharacters } from '../actions/charactersActions'
 import CharacterList from '../components/CharacterList'
 
 const CharacterListPage = ({
-  dispatch,
   characters,
   hasErrors,
   loading,
 }) => {
-  useEffect(() => {
-    dispatch(fetchCharacters())
-  }, [dispatch])
 
   const renderCharacters = () => {
     if (loading.characters) return <p>Loading characters...</p>

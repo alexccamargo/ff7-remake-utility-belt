@@ -10,8 +10,16 @@ import CharacterListPage from './pages/CharacterListPage'
 import CharacterPage from './pages/CharacterPage'
 import WeaponPage from './pages/WeaponPage'
 
+import { fetchCharacters } from './store/actions/charactersActions'
+import { fetchUserData } from './store/actions/userDataActions'
+import { useDispatch } from 'react-redux'
 
 const App = () => {
+
+  const dispatch = useDispatch()
+  dispatch(fetchCharacters())
+  dispatch(fetchUserData())
+
   return (
     <Router>
       <Switch>

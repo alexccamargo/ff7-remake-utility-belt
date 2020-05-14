@@ -1,45 +1,40 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { fetchCharacters } from '../actions/charactersActions'
 import { useParams } from 'react-router';
-import Character from '../components/Character';
 import { translate } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
-const CharacterPage = ({
-  dispatch,
-  characters,
-  hasErrors,
-  loading,
-}) => {
-  useEffect(() => {
-    dispatch(fetchCharacters())
-  }, [dispatch])
+import Character from '../components/Character';
+import { setSPAmount } from '../store/actions/userDataActions'
+import { selectUserDataByCharacter } from '../store/selectors/userDataSelector';
+import { selectCharacter } from '../store/selectors/characterSelector';
+
+const CharacterPage = () => {
 
   let { id } = useParams();
+  const character = useSelector(state => selectCharacter(state, id))
+  const characterUserData = useSelector(state => selectUserDataByCharacter(state, id));
+  const dispatch = useDispatch()
+
+  const handleSpChange = (spAmount) => {
+    dispatch(setSPAmount(character.id, spAmount))
+  }
 
   const renderCharacter = () => {
-    if (loading.characters) return <p>Loading character...</p>
-    if (hasErrors.characters) return <p>Unable to display character.</p>
 
-    const character = characters.find(c => id === c.id)
     if (!character) return <p>Unable to find character</p>
 
-    return <Character character={character}>{character.name}</Character>
+    return <Character character={character} spAmount={characterUserData.spAmount} onSPChange={handleSpChange}></Character>
 
   }
 
   return (
     <div>
+      <Link to={"/"}>Back to character selection</Link>
       {renderCharacter()}
     </div>
   )
 }
 
-const mapStateToProps = state => ({
-  characters: state.characters.characters,
-  loading: { characters: state.characters.loading },
-  hasErrors: { characters: state.characters.hasErrors },
-})
-
-export default connect(mapStateToProps)(translate()(CharacterPage))
+export default translate()(CharacterPage)

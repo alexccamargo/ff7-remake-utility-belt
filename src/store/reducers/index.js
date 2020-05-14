@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
 
 import charactersReducer from './charactersReducer'
+import userDataReducer from './userDataReducer'
 
 const rootReducer = combineReducers({
   characters: charactersReducer,
-  // more reducers will be added here
+  userData: userDataReducer,
 })
 
 export default rootReducer
