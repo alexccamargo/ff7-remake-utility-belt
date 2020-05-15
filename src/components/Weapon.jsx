@@ -12,7 +12,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Switch from '@material-ui/core/Switch';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { effectFactory } from '../models/effect';
 
 import './Weapon.css'
 import { translate } from 'react-i18next';
@@ -26,13 +25,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Weapon = ({ character, selectedWeapon, t }) => {
+const Weapon = ({ character, selectedWeapon, spAmount, t }) => {
     const classes = useStyles();
 
     const weapon = (character.weapons || []).find(w => w.id === selectedWeapon)
-    const effects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, effectFactory(e)]))
+    const effects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, e]))
 
     const [selectedEffect, setSelectedEffect] = useState([]);
+    const [currAmount, setCurrAmount] = useState(spAmount);
 
     const handleToggle = (event) => {
         let newEffectList = [...selectedEffect];
@@ -41,6 +41,9 @@ const Weapon = ({ character, selectedWeapon, t }) => {
         } else {
             newEffectList.push(event.target.name)
         }
+
+        const totalValue = newEffectList.map(ne => effects.get(ne).cost).reduce((a, b) => a + b, 0)
+        setCurrAmount(spAmount - totalValue)
         setSelectedEffect(newEffectList)
     };
 
@@ -51,8 +54,7 @@ const Weapon = ({ character, selectedWeapon, t }) => {
         return (
             <List className={classes.listRoot}>
                 {
-                    core.effects.map(e => {
-                        const effect = effects.get(e.id) || {}
+                    core.effects.map(effect => {
 
                         return (
                             <ListItem key={effect.id}>
@@ -62,8 +64,9 @@ const Weapon = ({ character, selectedWeapon, t }) => {
                                         edge="end"
                                         onChange={handleToggle}
                                         name={effect.id}
-                                        checked={selectedEffect[effect.id]}
+                                        checked={selectedEffect.includes(effect.id)}
                                         inputProps={{ 'aria-labelledby': `lable-${effect.id}` }}
+                                        disabled={!selectedEffect.includes(effect.id) && effect.cost > currAmount }
                                     />
                                 </ListItemSecondaryAction>
                             </ListItem>
@@ -141,6 +144,7 @@ const Weapon = ({ character, selectedWeapon, t }) => {
         <div>
             <h1>{t(`character.${character.id}`)}</h1>
             <h2>{t(`weapon.${character.id}.${weapon.id}.name`)}</h2>
+            <h3>{currAmount}</h3>
             {renderWeaponStats(selectedEffect)}
             {renderCores()}
         </div>

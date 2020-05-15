@@ -1,4 +1,4 @@
-import data from '../data/data.json';
+import { getDataFromJson } from "../data/data"
 
 export const GET_CHARACTER_LIST = 'GET CHARACTERS'
 export const GET_CHARACTER_LIST_SUCCESS = 'GET_CHARACTER_LIST_SUCCESS'
@@ -17,7 +17,7 @@ export function fetchCharacters() {
     dispatch(getCharacterList())
 
     try {
-      dispatch(getCharacterListSuccess(data))
+      dispatch(getCharacterListSuccess(getDataFromJson()))
     } catch (error) {
       dispatch(getCharacterListFailure())
     }

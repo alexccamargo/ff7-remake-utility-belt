@@ -1,181 +1,181 @@
 [
     {
         "id": "a",
-        "image": "/img/aerith.png",
-        "weapons": [
+        "img": "/img/aerith.png",
+        "w": [
             {
                 "id": "gs",
-                "attackPower": 29,
-                "magicAttackPower": 43,
-                "defense": 0,
-                "magicDefense": 0,
-                "materia": 2,
-                "connection": 0,
-                "cores": [
+                "ap": 29,
+                "map": 43,
+                "def": 0,
+                "mdef": 0,
+                "mat": 2,
+                "cmat": 0,
+                "cs": [
                     {
                         "id": "c1",
-                        "cost": 8,
-                        "effects": [
+                        "ct": 8,
+                        "efs": [
                             {
                                 "id": "e1",
-                                "type": "MAP",
-                                "value": "12"
+                                "t": "MAP",
+                                "v": "12"
                             },
                             {
                                 "id": "e2",
-                                "type": "DEF",
-                                "value": "7"
+                                "t": "DEF",
+                                "v": "7"
                             },
                             {
                                 "id": "e3",
-                                "type": "MDEF",
-                                "value": "7"
+                                "t": "MDEF",
+                                "v": "7"
                             },
                             {
                                 "id": "e4",
-                                "type": "MAXHP",
-                                "value": "150"
+                                "t": "MAXHP",
+                                "v": "150"
                             },
                             {
                                 "id": "e5",
-                                "type": "MAXMP",
-                                "value": "8"
+                                "t": "MAXMP",
+                                "v": "8"
                             }
                         ]
                     },
                     {
                         "id": "c2",
-                        "cost": 10,
-                        "effects": [
+                        "ct": 10,
+                        "efs": [
                             {
                                 "id": "e1",
-                                "type": "AD%B",
-                                "value": "5"
+                                "t": "AD%B",
+                                "v": "5"
                             },
                             {
                                 "id": "e2",
-                                "type": "TD%B",
-                                "value": "5"
+                                "t": "TD%B",
+                                "v": "5"
                             },
                             {
                                 "id": "e3",
-                                "type": "PDR%G",
-                                "value": "10"
+                                "t": "PDR%G",
+                                "v": "10"
                             },
                             {
                                 "id": "e4",
-                                "type": "MDR%G",
-                                "value": "10"
+                                "t": "MDR%G",
+                                "v": "10"
                             },
                             {
                                 "id": "e5",
-                                "type": "MAT"
+                                "t": "MAT"
                             }
                         ]
                     },
                     {
                         "id": "c3",
-                        "cost": 12,
-                        "effects": [
+                        "ct": 12,
+                        "efs": [
                             {
                                 "id": "e1",
-                                "type": "MAP",
-                                "value": "18"
+                                "t": "MAP",
+                                "v": "18"
                             },
                             {
                                 "id": "e2",
-                                "type": "MAXHP",
-                                "value": "150"
+                                "t": "MAXHP",
+                                "v": "150"
                             },
                             {
                                 "id": "e3",
-                                "type": "MAXMP",
-                                "value": "8"
+                                "t": "MAXMP",
+                                "v": "8"
                             },
                             {
                                 "id": "e4",
-                                "type": "MPR%B",
-                                "value": "10"
+                                "t": "MPR%B",
+                                "v": "10"
                             },
                             {
                                 "id": "e5",
-                                "type": "MAT"
+                                "t": "MAT"
                             },
                             {
                                 "id": "e6",
-                                "type": "MAT"
+                                "t": "MAT"
                             }
                         ]
                     },
                     {
                         "id": "c4",
-                        "cost": 14,
-                        "effects": [
+                        "ct": 14,
+                        "efs": [
                             {
                                 "id": "e1",
-                                "type": "MAP",
-                                "value": "18"
+                                "t": "MAP",
+                                "v": "18"
                             },
                             {
                                 "id": "e2",
-                                "type": "MAXHP",
-                                "value": "150"
+                                "t": "MAXHP",
+                                "v": "150"
                             },
                             {
                                 "id": "e3",
-                                "type": "MAXMP",
-                                "value": "8"
+                                "t": "MAXMP",
+                                "v": "8"
                             },
                             {
                                 "id": "e4",
-                                "type": "ED%B",
-                                "value": "5"
+                                "t": "ED%B",
+                                "v": "5"
                             },
                             {
                                 "id": "e5",
-                                "type": "HSMPCR%",
-                                "value": "20"
+                                "t": "HSMPCR%",
+                                "v": "20"
                             },
                             {
                                 "id": "e6",
-                                "type": "MAT"
+                                "t": "MAT"
                             },
                             {
-                                "id": "wac4e7",
-                                "type": "MAT"
+                                "id": "e7",
+                                "t": "MAT"
                             }
                         ]
                     },
                     {
                         "id": "c5",
-                        "cost": 16,
-                        "effects": [
+                        "ct": 16,
+                        "efs": [
                             {
                                 "id": "e1",
-                                "type": "MAP",
-                                "value": "18"
+                                "t": "MAP",
+                                "v": "18"
                             },
                             {
                                 "id": "e2",
-                                "type": "MAXHP",
-                                "value": "200"
+                                "t": "MAXHP",
+                                "v": "200"
                             },
                             {
                                 "id": "e3",
-                                "type": "MAXMP",
-                                "value": "10"
+                                "t": "MAXMP",
+                                "v": "10"
                             },
                             {
                                 "id": "e4",
-                                "type": "REPRIEVE"
+                                "t": "REPRIEVE"
                             },
                             {
                                 "id": "e5",
-                                "type": "MAT"
+                                "t": "MAT"
                             },
                             {
                                 "id": "e6",
-                                "type": "MAT"
+                                "t": "MAT"
                             }
                         ]
                     }
@@ -202,8 +202,8 @@
     },
     {
         "id": "b",
-        "image": "/img/barret.jpeg",
-        "weapons": [
+        "img": "/img/barret.jpeg",
+        "w": [
             {
                 "id": "gg"
             },
@@ -223,8 +223,8 @@
     },
     {
         "id": "c",
-        "image": "/img/cloud.png",
-        "weapons": [
+        "img": "/img/cloud.png",
+        "w": [
             {
                 "id": "bs"
             },
@@ -247,8 +247,8 @@
     },
     {
         "id": "t",
-        "image": "/img/tifa.jpg",
-        "weapons": [
+        "img": "/img/tifa.jpg",
+        "w": [
             {
                 "id": "lg"
             },
