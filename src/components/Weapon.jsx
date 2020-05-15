@@ -15,6 +15,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import './Weapon.css'
 import { translate } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { setSelectedEffects } from '../store/actions/userDataActions';
 
 const useStyles = makeStyles((theme) => ({
     listRoot: {
@@ -26,9 +28,10 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Weapon = ({ character, selectedWeapon, spAmount, t }) => {
-    const classes = useStyles();
+    const classes = useStyles()
+    const dispatch = useDispatch()
 
-    const weapon = (character.weapons || []).find(w => w.id === selectedWeapon)
+    const weapon = (character.weapons || []).find(w => w.id === selectedWeapon) || {}
     const effects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, e]))
 
     const [selectedEffect, setSelectedEffect] = useState([]);
@@ -45,6 +48,7 @@ const Weapon = ({ character, selectedWeapon, spAmount, t }) => {
         const totalValue = newEffectList.map(ne => effects.get(ne).cost).reduce((a, b) => a + b, 0)
         setCurrAmount(spAmount - totalValue)
         setSelectedEffect(newEffectList)
+        dispatch(setSelectedEffects(character.id, weapon.id, newEffectList))
     };
 
     const renderEffects = (core) => {
@@ -66,7 +70,7 @@ const Weapon = ({ character, selectedWeapon, spAmount, t }) => {
                                         name={effect.id}
                                         checked={selectedEffect.includes(effect.id)}
                                         inputProps={{ 'aria-labelledby': `lable-${effect.id}` }}
-                                        disabled={!selectedEffect.includes(effect.id) && effect.cost > currAmount }
+                                        disabled={!selectedEffect.includes(effect.id) && effect.cost > currAmount}
                                     />
                                 </ListItemSecondaryAction>
                             </ListItem>

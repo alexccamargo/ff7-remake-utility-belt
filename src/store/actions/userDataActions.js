@@ -8,7 +8,7 @@ export const SAVE_USER_DATA_SUCCESS = 'SAVE_USER_DATA_SUCCESS';
 export const SAVE_USER_DATA_FAILURE = 'SAVE_USER_DATA_FAILURE';
 
 export const SET_SP_AMOUNT = 'SET_SP_AMOUNT';
-
+export const SET_WEAPON_EFFECTS = "SET_WEAPON_EFFECTS";
 
 export const getUserData = () => ({ type: GET_USER_DATA });
 export const getUserDataSuccess = USERDATA => ({
@@ -57,3 +57,7 @@ export const setSPAmount = (charCode, spAmount) => ({
   payload: { charCode, spAmount },
 });
 
+export const setSelectedEffects = (charCode, weaponCode, effectIds) => ({
+  type: SET_WEAPON_EFFECTS,
+  payload: { charCode, weaponCode, effectIds },
+});

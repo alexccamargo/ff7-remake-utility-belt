@@ -7,7 +7,7 @@ import Weapon from '../components/Weapon';
 import { selectCharacter } from '../store/selectors/characterSelector';
 import { selectUserDataByCharacter } from '../store/selectors/userDataSelector';
 
-const CharacterPage = () => {
+const WeaponPage = () => {
 
   let { id, wpId } = useParams();
   const character = useSelector(state => selectCharacter(state, id))
@@ -28,4 +28,4 @@ const CharacterPage = () => {
   )
 }
 
-export default CharacterPage
+export default WeaponPage
