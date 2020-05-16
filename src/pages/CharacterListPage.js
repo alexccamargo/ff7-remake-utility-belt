@@ -19,7 +19,7 @@ const CharacterListPage = ({
 
   return (
     <section>
-      { renderCharacters() }
+      {renderCharacters()}
     </section>
   )
 }

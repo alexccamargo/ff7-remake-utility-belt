@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { useParams } from 'react-router';
-import { translate } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router'
+import { translate } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
-import Character from '../components/Character';
-import { setSPAmount } from '../store/actions/userDataActions'
-import { selectUserDataByCharacter } from '../store/selectors/userDataSelector';
-import { selectCharacter } from '../store/selectors/characterSelector';
+import Character from '../components/Character'
+import { setSPAmount, storeUserData } from '../store/actions/userDataActions'
+import { selectUserDataByCharacter } from '../store/selectors/userDataSelector'
+import { selectCharacter } from '../store/selectors/characterSelector'
 
 const CharacterPage = () => {
-
-  let { id } = useParams();
+  let { id } = useParams()
   const character = useSelector(state => selectCharacter(state, id))
-  const characterUserData = useSelector(state => selectUserDataByCharacter(state, id));
+  const characterUserData = useSelector(state => selectUserDataByCharacter(state, id))
   const dispatch = useDispatch()
 
   const handleSpChange = (spAmount) => {
     dispatch(setSPAmount(character.id, spAmount))
   }
+
+  const saveData = () => { dispatch(storeUserData()) }
+  useEffect(saveData, [characterUserData])
 
   const renderCharacter = () => {
 

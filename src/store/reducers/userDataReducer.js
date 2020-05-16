@@ -2,11 +2,11 @@ import * as actions from '../actions/userDataActions'
 
 export const initialState = {
   characters: {},
+  weapons: {},
 }
 
 export const characterInitialState = {
   spAmount: 100,
-  weapons: []
 }
 
 export const weaponInitialState = {
@@ -18,46 +18,32 @@ export default function userDataReducer(state = initialState, action) {
     case actions.GET_USER_DATA:
     case actions.SAVE_USER_DATA:
       return { ...state }
+    case actions.LOAD_USER_DATA:
+      return { ...initialState, ...action.payload }
     case actions.SET_SP_AMOUNT:
       return {
+        ...state,
         characters: {
           ...state.characters,
-          ...createNewCharacterOrUpdateAmount(state, action.payload)
+          [action.payload.charCode]: {
+            ...(state.characters[action.payload.charCode] || characterInitialState),
+            spAmount: action.payload.spAmount
+          }
         }
       }
     case actions.SET_WEAPON_EFFECTS:
+      const weaponId = `${action.payload.charCode}${action.payload.weaponCode}`
       return {
-        characters: {
-          ...state.characters,
-          ...createNewCharacterOrWeaponEffects(state, action.payload)
+        ...state,
+        weapons: {
+          ...state.weapons,
+          [weaponId]: {
+            ...(state.weapons[weaponId] || weaponInitialState),
+            effects: action.payload.effects
+          }
         }
       }
     default:
       return state
   }
-}
-
-const createNewCharacterOrUpdateAmount = (state, { charCode, spAmount }) => {
-  const character = {}
-  character[charCode] = { ...characterInitialState, ...(state.characters[charCode] || {}), spAmount }
-
-  return character
-}
-
-const createNewCharacterOrWeaponEffects = (state, { charCode, weaponCode, effectIds }) => {
-  const character = {
-    [charCode]: {
-      ...characterInitialState,
-      ...(state.characters[charCode] || {}),
-    }
-  }
-  
-  const weapons = character[charCode].weapons
-
-  character[charCode].weapons = {
-    ...weapons,
-    [weaponCode]: { ...weaponInitialState, ...(weapons[weaponCode] || {}), effectIds }
-  }
-
-  return character
 }

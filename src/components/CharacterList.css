@@ -1,20 +1,20 @@
 .character-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 115px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 115px;
 }
 
 .character-tile {
-    max-width: 150px;
-    height: 100%;
-    padding: 8px;
+  max-width: 150px;
+  height: 100%;
+  padding: 8px;
 }
 
 .character-tile  img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .character-tile div {
-    text-align: center;
+  text-align: center;
 }
