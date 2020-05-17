@@ -6,13 +6,13 @@
 }
 
 .character-tile {
-  max-width: 150px;
   height: 100%;
   padding: 8px;
 }
 
 .character-tile  img {
   max-width: 100%;
+  padding: 1rem;
 }
 
 .character-tile div {
