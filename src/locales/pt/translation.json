@@ -4,5 +4,180 @@
     "b": "Barret",
     "c": "Cloud",
     "t": "Tifa"
+  },
+  "weapon": {
+    "a": {
+      "gs": {
+        "name": "Guard Stick",
+        "core": {
+          "c1": "Guard Stick Core",
+          "c2": "Guard Stick Sub-Core I",
+          "c3": "Guard Stick Sub-Core II",
+          "c4": "Guard Stick Sub-Core III",
+          "c5": "Guard Stick Sub-Core IV"
+        }
+      },
+      "ss": {
+        "name": "Silver Staff"
+      },
+      "as": {
+        "name": "Arcane Scepter"
+      },
+      "mr": {
+        "name": "Mythril Rod"
+      },
+      "bs": {
+        "name": "Bladed Staff"
+      },
+      "rs": {
+        "name": "Reinforced Staff"
+      }
+    },
+    "b": {
+      "gg": {
+        "name": "Gatling Gun",
+        "core": {
+          "c1": "Gatling Gun Core",
+          "c2": "Gatling Gun Sub-Core I",
+          "c3": "Gatling Gun Sub-Core II",
+          "c4": "Gatling Gun Sub-Core III",
+          "c5": "Gatling Gun Sub-Core IV",
+          "c6": "Gatling Gun Sub-Core V"
+        }
+      },
+      "lmg": {
+        "name": "Light Machine Gun"
+      },
+      "bb": {
+        "name": "Big Bertha",
+        "core": {
+          "c1": "Big Bertha Core",
+          "c2": "Big Bertha Sub-Core I",
+          "c3": "Big Bertha Sub-Core II",
+          "c4": "Big Bertha Sub-Core III"
+        }
+      },
+      "wb": {
+        "name": "Wrecking Ball"
+      },
+      "ekg": {
+        "name": "EKG Cannon"
+      }
+    },
+    "c": {
+      "bs": {
+        "name": "Buster Sword",
+        "core": {
+          "c1": "Buster Sword Core",
+          "c2": "Buster Sword Sub-Core I",
+          "c3": "Buster Sword Sub-Core II",
+          "c4": "Buster Sword Sub-Core III",
+          "c5": "Buster Sword Sub-Core IV",
+          "c6": "Buster Sword Sub-Core V"
+        }
+      },
+      "ib": {
+        "name": "Iron Blade",
+        "core": {
+          "c1": "Iron Blade Core",
+          "c2": "Iron Blade Sub-Core I",
+          "c3": "Iron Blade Sub-Core II",
+          "c4": "Iron Blade Sub-Core III",
+          "c5": "Iron Blade Sub-Core IV",
+          "c6": "Iron Blade Sub-Core V"
+        }
+      },
+      "nb": {
+        "name": "Nail Bat"
+      },
+      "h": {
+        "name": "Hardedge",
+        "core": {
+          "c1": "Hardedge Core",
+          "c2": "Hardedge Sub-Core I",
+          "c3": "Hardedge Sub-Core II",
+          "c4": "Hardedge Sub-Core III",
+          "c5": "Hardedge Sub-Core IV"
+        }
+      },
+      "ms": {
+        "name": "Mythril Saber"
+      },
+      "ts": {
+        "name": "Twin Stinger"
+      }
+    },
+    "t": {
+      "lg": {
+        "name": "Leather Gloves",
+        "core": {
+          "c1": "Leather Gloves Core",
+          "c2": "Leather Gloves Sub-Core I",
+          "c3": "Leather Gloves Sub-Core II",
+          "c4": "Leather Gloves Sub-Core III",
+          "c5": "Leather Gloves Sub-Core IV",
+          "c6": "Leather Gloves Sub-Core V"
+        }
+      },
+      "mk": {
+        "name": "Metal Knuckles"
+      },
+      "ss": {
+        "name": "Sonic Strikers"
+      },
+      "fg": {
+        "name": "Feathered Gloves"
+      },
+      "mc": {
+        "name": "Mythril Claws"
+      },
+      "pp": {
+        "name": "Purple Pain"
+      }
+    }
+  },
+  "effects": {
+    "AP": "Attack Power +{{value}}",
+    "APHHP": "Attack Power +{{value}} with High HP",
+    "MAP": "Magic Attack Power +{{value}}",
+    "MAPHHP": "Magic Attack Power +{{value}} with High HP",
+    "DEF": "Defense +{{value}}",
+    "MDEF": "Magic Defense +{{value}}",
+    "SP": "Speed +{{value}}",
+    "MAXHP": "Max HP +{{value}}",
+    "MAXMP": "Max MP +{{value}}",
+    "AD%B": "Attack Damage {{value}}% Boost",
+    "AAD%B": "Aerial Attack Damage {{value}}% Boost",
+    "TD%B": "Tempest Damage {{value}}% Boost",
+    "PDR%G": "Physical Damage Reduction {{value}}% when Guarding",
+    "PDEFHHP": "Physical Defense +{{value}} with High HP",
+    "PDEFLHP": "Physical Defense +{{value}} with Low HP",
+    "MDR%G": "Magic Damage Reduction {{value}}% when Guarding",
+    "MDEFLHP": "Magic Defense +{{value}} with Low HP",
+    "MPR%B": "MP Regeneration {{value}}% Boost",
+    "ED%B": "Elemental Defense {{value}}% Boost",
+    "HSMPCR%": "Healing Spells MP Cost Reduction {{value}}%",
+    "PMSAD%B": "Punisher Mode Strong Attack Damage {{value}}% Boost",
+    "PMCD%B": "Punisher Mode Counter Damage {{value}}% Boost",
+    "OD%B": "Overcharge Damage {{value}}% Boost",
+    "CD%B": "Crippling Damage {{value}}% Boost",
+    "LBD%B": "Limit Break Damage {{value}}% Boost",
+    "LB%LHP": "Limit Break {{value}}% Boost with Low HP",
+    "SH%LHP": "Self-Healing {{value}}% Boost with Low HP",
+    "USD%B": "Unbridled Strength Damage {{vaue}}% Boost",
+    "BD%B": "Buff Duration {{value}}% Boost",
+    "CAC": "Concentration Activation {{value}}%",
+    "WACHT%B": "Weapon Ability Critical Hit Rate {{value}}% Boost",
+    "MAT": "New Materia",
+    "REPRIEVE": "Morto que não morreu",
+    "TO": "Bença das fada",
+    "STSIP": "Chupa tonto",
+    "BLS": "Chupa morto",
+    "details": {
+      "REPRIEVE": "Evita morrer depois de uma bordoada. Uma vez por batalha ta bom né?",
+      "TO": "Apanhou feito criança, ganha poder das fadinhas.",
+      "STSIP": "Da uma de dracula, o chupador, e ganha vida de volta.",
+      "BLS": "Da uma de dracula necrófilo."
+    }
   }
 }

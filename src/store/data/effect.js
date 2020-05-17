@@ -83,35 +83,7 @@ export const effectFactory = (effect) => {
           return { ...status, maxMp: (status.maxMp || 0) + Number.parseInt(effect.value) }
         }
       }
-    case ATTACK_DAMAGE_PERCENT_BOOST:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, attackPercentBoost: (status.attackPercentBoost || 0) + Number.parseInt(effect.value) }
-        }
-      }
-    case TEMPEST_DAMAGE_PERCENT_BOOST:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, tempestPercentBoost: (status.tempestPercentBoost || 0) + Number.parseInt(effect.value) }
-        }
-      }
 
-    case PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, physicalDamageReductionPercentGuard: (status.physicalDamageReductionPercentGuard || 0) + Number.parseInt(effect.value) }
-        }
-      }
-    case MAGIC_DAMAGE_REDUCTION_PERCENT_ON_GUARD:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, magicDamageReductionPercentGuard: (status.magicDamageReductionPercentGuard || 0) + Number.parseInt(effect.value) }
-        }
-      }
     case NEW_MATERIAL:
       return {
         ...effect,
@@ -119,32 +91,16 @@ export const effectFactory = (effect) => {
           return { ...status, numMateria: (status.numMateria || 0) + 1 }
         }
       }
-    case MP_REGEN_PERCENT_BOOST:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, mpRegenPercentBoost: (status.mpRegenPercentBoost || 0) + Number.parseInt(effect.value) }
-        }
-      }
-
+    case ATTACK_DAMAGE_PERCENT_BOOST:
+    case TEMPEST_DAMAGE_PERCENT_BOOST:
+    case PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD:
+    case MAGIC_DAMAGE_REDUCTION_PERCENT_ON_GUARD:
     case ELEMENTAL_DEFENSE_PERCENT_BOOOST:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, elementalDefensePercent: (status.elementalDefensePercent || 0) + Number.parseInt(effect.value) }
-        }
-      }
-
     case HEALING_SPELLS_MP_COST_REDUCTION:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, healingSpellMPCostPercentReduction: (status.healingSpellMPCostPercentReduction || 0) + Number.parseInt(effect.value) }
-        }
-      }
     case SPEED:
     case ATTACK_POWER_HIGH_HP:
     case MAGIC_ATTACK_POWER_HIGH_HP:
+    case MP_REGEN_PERCENT_BOOST:
     case PUNISHER_MODE_ATTACK_PERCENT_BOOST:
     case LIMIT_BREAK_DAMAGE_PERCENT_BOOST:
     case LIMIT_BREAK_PERCENT_BOOST_LOW_HP:

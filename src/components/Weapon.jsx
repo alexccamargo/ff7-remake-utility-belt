@@ -40,15 +40,31 @@ const containDetails = [
 ]
 
 const specialModifiers = [
-  'attackPercentBoost',
-  'magicDamageReductionPercentGuard',
-  'mpRegenPercentBoost',
-  'elementalDefensePercent',
-  'healingSpellMPCostPercentReduction',
-  'physicalDamageReductionPercentGuard',
-  'tempestPercentBoost',
+  effectTypes.SPEED,
+  effectTypes.ATTACK_POWER_HIGH_HP,
+  effectTypes.MAGIC_ATTACK_POWER_HIGH_HP,
+  effectTypes.MP_REGEN_PERCENT_BOOST,
   effectTypes.PUNISHER_MODE_ATTACK_PERCENT_BOOST,
   effectTypes.LIMIT_BREAK_DAMAGE_PERCENT_BOOST,
+  effectTypes.LIMIT_BREAK_PERCENT_BOOST_LOW_HP,
+  effectTypes.PUNISHER_MODE_COUNTER_DAMAGE_PERCENT_BOOST,
+  effectTypes.UNBRIDLED_STRENGTH_DAMAGE_PERCENT_BOOST,
+  effectTypes.OVERCHARGE_DAMAGE_PERCENT_BOOST,
+  effectTypes.CRIPPLING_DAMAGE_PERCENT_BOOST,
+  effectTypes.WEAPON_ABILITY_CRITICAL_HIT_RATE_PERCENT_BOOST,
+  effectTypes.PHYSICAL_DEFENSE_HIGH_HP,
+  effectTypes.PHYSICAL_DEFENSE_LOW_HP,
+  effectTypes.MAGIC_DEFENSE_LOW_HP,
+  effectTypes.SELF_HEALING_PERCENT_BOOST_LOW_HP,
+  effectTypes.CONCENTRATION_ACTIVATION,
+  effectTypes.AERIAL_ATTACK_DAMAGE_PERCENT_BOOST,
+  effectTypes.BUFF_DURRATION_PERCENT_BOOST,
+  effectTypes.ELEMENTAL_DEFENSE_PERCENT_BOOOST,
+  effectTypes.HEALING_SPELLS_MP_COST_REDUCTION,
+  effectTypes.ATTACK_DAMAGE_PERCENT_BOOST,
+  effectTypes.TEMPEST_DAMAGE_PERCENT_BOOST,
+  effectTypes.PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD,
+  effectTypes.MAGIC_DAMAGE_REDUCTION_PERCENT_ON_GUARD,
 ]
 
 const spEffect = [
@@ -177,7 +193,7 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
   const renderSpecialModifiers = (stats) => {
     const items = specialModifiers
       .filter(smod => stats[smod])
-      .map(smod => (<li key={`sf${smod}`}>{smod}: {stats[smod]}</li>))
+      .map(smod => (<li key={`sf${smod}`}>{t(`effects.${smod}`, { value: stats[smod] })}</li>))
 
     return !!items.length && <div>
       <h3> Special modifiers</h3>
@@ -193,7 +209,7 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
 
     const items = spEffect
       .filter(sEffect => stats[sEffect])
-      .map(sEffect => (<li key={`sf${sEffect}`}>{sEffect}: {stats[sEffect]}</li>))
+      .map(sEffect => (<li key={`sf${sEffect}`}>{t(`effects.${sEffect}`, { value: stats[sEffect] })}</li>))
 
 
     return !!items.length && <div>
