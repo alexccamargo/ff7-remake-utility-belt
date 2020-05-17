@@ -1,19 +1,28 @@
-const ATTACK_POWER = "AP"
-const MAGIC_ATTACK_POWER = "MAP"
-const DEFENSE = "DEF"
-const MAGIC_DEFENSE = "MDEF"
-const MAX_HP = "MAXHP"
-const MAX_MP = "MAXMP"
-const ATTACK_DAMAGE_PERCENT_BOOST = "AD%B"
-const TEMPEST_DAMAGE_PERCENT_BOOST = "TD%B"
-const PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD = "PDR%G"
-const MAGIC_DAMAGE_REDUCTION_PERCENT_ON_GUARD = "MDR%G"
-const NEW_MATERIAL = "MAT"
-const MP_REGEN_PERCENT_BOOST = "MPR%B"
+export const ATTACK_POWER = "AP"
+export const MAGIC_ATTACK_POWER = "MAP"
+export const MAGIC_ATTACK_POWER_HIGH_HP = "MAPHHP"
+export const DEFENSE = "DEF"
+export const MAGIC_DEFENSE = "MDEF"
+export const MAX_HP = "MAXHP"
+export const MAX_MP = "MAXMP"
+export const ATTACK_DAMAGE_PERCENT_BOOST = "AD%B"
+export const TEMPEST_DAMAGE_PERCENT_BOOST = "TD%B"
+export const PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD = "PDR%G"
+export const PHYSICAL_DEFENSE_HIGH_HP = "PDEFHHP"
+export const PHYSICAL_DEFENSE_LOW_HP = "PDEFLHP"
+export const MAGIC_DAMAGE_REDUCTION_PERCENT_ON_GUARD = "MDR%G"
+export const NEW_MATERIAL = "MAT"
+export const MP_REGEN_PERCENT_BOOST = "MPR%B"
+export const ELEMENTAL_DEFENSE_PERCENT_BOOOST = "ED%B"
+export const HEALING_SPELLS_MP_COST_REDUCTION = "HSMPCR%"
+export const PUNISHER_MODE_ATTACK_PERCENT_BOOST = "PMSAD%B"
+export const PUNISHER_MODE_COUNTER_DAMAGE_PERCENT_BOOST = "PMCD%B"
+export const LIMIT_BREAK_DAMAGE_PERCENT_BOOST = "LBD%B"
+export const LIMIT_BREAK_PERCENT_BOOST_LOW_HP = "LB%LHP"
+export const SELF_HEALING_PERCENT_BOOST_LOW_HP = "SH%LHP"
+export const TRADE_OFF = "TO"
 
-const ELEMENTAL_DEFENSE_PERCENT_BOOOST = "ED%B"
-const HEALING_SPELLS_MP_COST_REDUCTION = "HSMPCR%"
-const REPRIEVE = "REPRIEVE"
+export const REPRIEVE = "REPRIEVE"
 
 export const effectFactory = (effect) => {
   switch (effect.type) {
@@ -119,12 +128,25 @@ export const effectFactory = (effect) => {
           return { ...status, healingSpellMPCostPercentReduction: (status.healingSpellMPCostPercentReduction || 0) + Number.parseInt(effect.value) }
         }
       }
+    case MAGIC_ATTACK_POWER_HIGH_HP:
+    case PUNISHER_MODE_ATTACK_PERCENT_BOOST:
+    case LIMIT_BREAK_DAMAGE_PERCENT_BOOST:
+    case PUNISHER_MODE_COUNTER_DAMAGE_PERCENT_BOOST:
+    case PHYSICAL_DEFENSE_HIGH_HP:
+    case PHYSICAL_DEFENSE_LOW_HP:
+      return {
+        ...effect,
+        applyEffect: (status) => {
+          return { ...status, [effect.type]: (status[effect.type] || 0) + Number.parseInt(effect.value) }
+        }
+      }
 
+    case TRADE_OFF:
     case REPRIEVE:
       return {
         ...effect,
         applyEffect: (status) => {
-          return { ...status, reprieve: true }
+          return { ...status, [effect.type]: true }
         }
       }
 

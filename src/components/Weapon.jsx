@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import './Weapon.css'
 import { translate } from 'react-i18next'
+import { PUNISHER_MODE_ATTACK_PERCENT_BOOST, LIMIT_BREAK_DAMAGE_PERCENT_BOOST } from '../store/data/effect'
 
 const useStyles = makeStyles((theme) => ({
   listRoot: {
@@ -24,6 +25,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+const specialModifiers = [
+  'attackPercentBoost',
+  'magicDamageReductionPercentGuard',
+  'mpRegenPercentBoost',
+  'elementalDefensePercent',
+  'healingSpellMPCostPercentReduction',
+  'physicalDamageReductionPercentGuard',
+  'tempestPercentBoost',
+  PUNISHER_MODE_ATTACK_PERCENT_BOOST,
+  LIMIT_BREAK_DAMAGE_PERCENT_BOOST,
+]
+
+const spEffect = [
+  'reprieve',
+]
 
 const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEffectsChange }) => {
   const classes = useStyles()
@@ -115,31 +131,85 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
     selectedEffect.forEach((effect) => {
       stats = effects.get(effect).applyEffect(stats)
     })
-
     return stats
+  }
+
+  const renderSpecialModifiers = (stats) => {
+    const items = specialModifiers
+      .filter(smod => stats[smod])
+      .map(smod => (<li key={`sf${smod}`}>{smod}: {stats[smod]}</li>))
+
+    if (!items.length)
+      return <div></div>
+
+    return <div>
+      <h3> Special modifiers</h3>
+      <ul>
+        {
+          items
+        }
+      </ul>
+    </div>
+  }
+
+  const renderSpecialEffects = (stats) => {
+
+    const items = spEffect
+      .filter(sEffect => stats[sEffect])
+      .map(sEffect => (<li key={`sf${sEffect}`}>{sEffect}: {stats[sEffect]}</li>))
+
+    if (!items.length) {
+      return (
+        <div></div>
+      )
+    }
+
+    return <div>
+      <h3>Other effects</h3>
+      <ul>
+        {items}
+      </ul>
+    </div>
+
+
+
+
+
   }
 
   const renderWeaponStats = (selectedEffect) => {
     const stats = calculateStats(selectedEffect)
     return (
-      <table className="weapon-stats">
-        <thead>
-          <tr>
-            <th>AP</th>
-            <th>MP</th>
-            <th>Def</th>
-            <th>MDef</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{stats.attackPower}</td>
-            <td>{stats.magicAttackPower}</td>
-            <td>{stats.defense}</td>
-            <td>{stats.magicDefense}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <h3>Basic Stats</h3>
+        <table className="weapon-stats">
+          <thead>
+            <tr>
+              <th>AP</th>
+              <th>MP</th>
+              <th>Def</th>
+              <th>MDef</th>
+              <th>Max HP</th>
+              <th>Max MP</th>
+              <th>Materia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{stats.attackPower}</td>
+              <td>{stats.magicAttackPower}</td>
+              <td>{stats.defense}</td>
+              <td>{stats.magicDefense}</td>
+              <td>{stats.maxHp || '-'}</td>
+              <td>{stats.maxMp || '-'}</td>
+              <td>{stats.numMateria || '-'}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {renderSpecialModifiers(stats)}
+        {renderSpecialEffects(stats)}
+      </div>
     )
 
   }

@@ -52,10 +52,26 @@
     },
     "c": {
       "bs": {
-        "name": "Buster Sword"
+        "name": "Buster Sword",
+        "core": {
+          "c1": "Buster Sword Core",
+          "c2": "Buster Sword Sub-Core I",
+          "c3": "Buster Sword Sub-Core II",
+          "c4": "Buster Sword Sub-Core III",
+          "c5": "Buster Sword Sub-Core IV",
+          "c6": "Buster Sword Sub-Core V"
+        }
       },
       "ib": {
-        "name": "Iron Blade"
+        "name": "Iron Blade",
+        "core": {
+          "c1": "Iron Blade Core",
+          "c2": "Iron Blade Sub-Core I",
+          "c3": "Iron Blade Sub-Core II",
+          "c4": "Iron Blade Sub-Core III",
+          "c5": "Iron Blade Sub-Core IV",
+          "c6": "Iron Blade Sub-Core IV"
+        }
       },
       "nb": {
         "name": "Nail Bat"
@@ -94,6 +110,7 @@
   "effects": {
     "AP": "Attack Power +{{value}}",
     "MAP": "Magic Attack Power +{{value}}",
+    "MAPHHP": "Magic Attack Power +{{value}} with High HP",
     "DEF": "Defense +{{value}}",
     "MDEF": "Magic Defense +{{value}}",
     "MAXHP": "Max HP +{{value}}",
@@ -101,11 +118,19 @@
     "AD%B": "Attack Damage {{value}}% Boost",
     "TD%B": "Tempest Damage {{value}}% Boost",
     "PDR%G": "Physical Damage Reduction {{value}}% when Guarding",
+    "PDEFHHP": "Physical Defense +{{value}} with High HP",
+    "PDEFLHP": "Physical Defense +{{value}} with Low HP",
     "MDR%G": "Magic Damage Reduction {{value}}% when Guarding",
     "MAT": "New Materia",
     "MPR%B": "MP Regeneration {{value}}% Boost",
     "ED%B": "Elemental Defense {{value}}% Boost",
     "HSMPCR%": "Healing Spells MP Cost Reduction {{value}}%",
-    "REPRIEVE": "Reprieve"
+    "PMSAD%B": "Punisher Mode Strong Attack Damage {{value}}% Boost",
+    "PMCD%B": "Punisher Mode Counter Damage {{value}}% Boost",
+    "LBD%B": "Limit Break Damage {{value}}% Boost",
+    "LB%LHP": "Limit Break {{value}}% Boost with Low HP",
+    "SH%LHP": "Self-Healing {{value}}% Boost with Low HP",
+    "REPRIEVE": "Reprieve",
+    "TO": "Trade-Off"
   }
 }
