@@ -9,13 +9,17 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+
 import Switch from '@material-ui/core/Switch'
 
 import { makeStyles } from '@material-ui/core/styles'
 
 import './Weapon.css'
 import { translate } from 'react-i18next'
-import { PUNISHER_MODE_ATTACK_PERCENT_BOOST, LIMIT_BREAK_DAMAGE_PERCENT_BOOST } from '../store/data/effect'
+import * as effectTypes from '../store/data/effect'
+import { IconButton, Popover, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   listRoot: {
@@ -23,7 +27,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
+  typography: {
+    padding: theme.spacing(2),
+  },
 }))
+
+const containDetails = [
+  effectTypes.REPRIEVE,
+  effectTypes.STAGGER_SIPHON,
+  effectTypes.TRADE_OFF,
+  effectTypes.BLOODSUCKER,
+]
 
 const specialModifiers = [
   'attackPercentBoost',
@@ -33,8 +47,8 @@ const specialModifiers = [
   'healingSpellMPCostPercentReduction',
   'physicalDamageReductionPercentGuard',
   'tempestPercentBoost',
-  PUNISHER_MODE_ATTACK_PERCENT_BOOST,
-  LIMIT_BREAK_DAMAGE_PERCENT_BOOST,
+  effectTypes.PUNISHER_MODE_ATTACK_PERCENT_BOOST,
+  effectTypes.LIMIT_BREAK_DAMAGE_PERCENT_BOOST,
 ]
 
 const spEffect = [
@@ -44,6 +58,8 @@ const spEffect = [
 const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEffectsChange }) => {
   const classes = useStyles()
 
+  console.log(weapon.cores || [])
+  console.log((weapon.cores || []).flatMap(c => c.effects))
   const effects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, e]))
 
   const [selectedEffectState, setSelectedEffectState] = useState([...selectedEffects])
@@ -79,6 +95,30 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
             return (
               <ListItem key={effect.id}>
                 <ListItemText id={`lable-${effect.id}`} primary={t(`effects.${effect.type}`, { value: effect.value })} />
+                {containDetails.includes(effect.type) &&
+                  <ListItemIcon>
+                    <IconButton onClick={handleClick}>
+                      <HelpOutlineIcon />
+                    </IconButton>
+                    <Popover
+                      id={id}
+                      open={open}
+                      anchorEl={anchorEl}
+                      onClose={handleClose}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'center',
+                      }}
+                      transformOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                      }}
+                    >
+                      <Typography className={classes.typography}>{t(`effects.details.${effect.type}`)}</Typography>
+                    </Popover>
+                  </ListItemIcon>
+                }
+
                 <ListItemSecondaryAction>
                   <Switch
                     edge="end"
@@ -139,10 +179,7 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
       .filter(smod => stats[smod])
       .map(smod => (<li key={`sf${smod}`}>{smod}: {stats[smod]}</li>))
 
-    if (!items.length)
-      return <div></div>
-
-    return <div>
+    return !!items.length && <div>
       <h3> Special modifiers</h3>
       <ul>
         {
@@ -158,23 +195,13 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
       .filter(sEffect => stats[sEffect])
       .map(sEffect => (<li key={`sf${sEffect}`}>{sEffect}: {stats[sEffect]}</li>))
 
-    if (!items.length) {
-      return (
-        <div></div>
-      )
-    }
 
-    return <div>
+    return !!items.length && <div>
       <h3>Other effects</h3>
       <ul>
         {items}
       </ul>
     </div>
-
-
-
-
-
   }
 
   const renderWeaponStats = (selectedEffect) => {
@@ -211,8 +238,19 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
         {renderSpecialEffects(stats)}
       </div>
     )
-
   }
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <div>
