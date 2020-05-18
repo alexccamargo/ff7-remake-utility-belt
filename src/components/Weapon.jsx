@@ -19,6 +19,15 @@ import { makeStyles } from '@material-ui/core/styles'
 import './Weapon.css'
 import { translate } from 'react-i18next'
 import * as effectTypes from '../store/data/effect'
+import {
+  ATTACK_POWER,
+  MAGIC_ATTACK_POWER,
+  DEFENSE,
+  MAGIC_DEFENSE,
+  MAX_HP,
+  MAX_MP,
+  NEW_MATERIAL
+} from '../store/data/effect'
 import { IconButton, Popover, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +77,10 @@ const specialModifiers = [
 ]
 
 const spEffect = [
-  'reprieve',
+  effectTypes.TRADE_OFF,
+  effectTypes.REPRIEVE,
+  effectTypes.STAGGER_SIPHON,
+  effectTypes.BLOODSUCKER,
 ]
 
 const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEffectsChange }) => {
@@ -173,15 +185,14 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
         </ExpansionPanel>
       ))
     )
-
   }
 
   const calculateStats = (selectedEffect) => {
     let stats = {
-      attackPower: weapon.attackPower,
-      magicAttackPower: weapon.magicAttackPower,
-      defense: weapon.defense,
-      magicDefense: weapon.magicDefense
+      [ATTACK_POWER]: weapon.attackPower,
+      [MAGIC_ATTACK_POWER]: weapon.magicAttackPower,
+      [DEFENSE]: weapon.defense,
+      [MAGIC_DEFENSE]: weapon.magicDefense
     }
 
     selectedEffect.forEach((effect) => {
@@ -211,7 +222,6 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
       .filter(sEffect => stats[sEffect])
       .map(sEffect => (<li key={`sf${sEffect}`}>{t(`effects.${sEffect}`, { value: stats[sEffect] })}</li>))
 
-
     return !!items.length && <div>
       <h3>Other effects</h3>
       <ul>
@@ -239,13 +249,13 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
           </thead>
           <tbody>
             <tr>
-              <td>{stats.attackPower}</td>
-              <td>{stats.magicAttackPower}</td>
-              <td>{stats.defense}</td>
-              <td>{stats.magicDefense}</td>
-              <td>{stats.maxHp || '-'}</td>
-              <td>{stats.maxMp || '-'}</td>
-              <td>{stats.numMateria || '-'}</td>
+              <td>{stats[ATTACK_POWER]}</td>
+              <td>{stats[MAGIC_ATTACK_POWER]}</td>
+              <td>{stats[DEFENSE]}</td>
+              <td>{stats[MAGIC_DEFENSE]}</td>
+              <td>{stats[MAX_HP] || '-'}</td>
+              <td>{stats[MAX_MP] || '-'}</td>
+              <td>{stats[NEW_MATERIAL] || '-'}</td>
             </tr>
           </tbody>
         </table>

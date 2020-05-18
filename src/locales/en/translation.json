@@ -18,19 +18,52 @@
         }
       },
       "ss": {
-        "name": "Silver Staff"
+        "name": "Silver Staff",
+        "core": {
+          "c1": "Silver Staff Core",
+          "c2": "Silver Staff Sub-Core I",
+          "c3": "Silver Staff Sub-Core II",
+          "c4": "Silver Staff Sub-Core III",
+          "c5": "Silver Staff Sub-Core IV"
+        }
       },
       "as": {
-        "name": "Arcane Scepter"
+        "name": "Arcane Scepter",
+        "core": {
+          "c1": "Arcane Scepter Core",
+          "c2": "Arcane Scepter Sub-Core I",
+          "c3": "Arcane Scepter Sub-Core II",
+          "c4": "Arcane Scepter Sub-Core III",
+          "c5": "Arcane Scepter Sub-Core IV"
+        }
       },
       "mr": {
-        "name": "Mythril Rod"
+        "name": "Mythril Rod",
+        "core": {
+          "c1": "Mythril Rod Core",
+          "c2": "Mythril Rod Sub-Core I",
+          "c3": "Mythril Rod Sub-Core II",
+          "c4": "Mythril Rod Sub-Core III"
+        }
       },
       "bs": {
-        "name": "Bladed Staff"
+        "name": "Bladed Staff",
+        "core": {
+          "c1": "Bladed Staff Core",
+          "c2": "Bladed Staff Sub-Core I",
+          "c3": "Bladed Staff Sub-Core II",
+          "c4": "Bladed Staff Sub-Core III",
+          "c5": "Bladed Staff Sub-Core IV"
+        }
       },
       "rs": {
-        "name": "Reinforced Staff"
+        "name": "Reinforced Staff",
+        "core": {
+          "c1": "Reinforced Staff Core",
+          "c2": "Reinforced Staff Sub-Core I",
+          "c3": "Reinforced Staff Sub-Core II",
+          "c4": "Reinforced Staff Sub-Core III"
+        }
       }
     },
     "b": {
@@ -46,7 +79,15 @@
         }
       },
       "lmg": {
-        "name": "Light Machine Gun"
+        "name": "Light Machine Gun",
+        "core": {
+          "c1": "Light Machine Gun Core",
+          "c2": "Light Machine Gun Sub-Core I",
+          "c3": "Light Machine Gun Sub-Core II",
+          "c4": "Light Machine Gun Sub-Core III",
+          "c5": "Light Machine Gun Sub-Core IV",
+          "c6": "Light Machine Gun Sub-Core V"
+        }
       },
       "bb": {
         "name": "Big Bertha",
@@ -57,11 +98,32 @@
           "c4": "Big Bertha Sub-Core III"
         }
       },
+      "sp": {
+        "name": "Steel Pincers",
+        "core": {
+          "c1": "Steel Pincers Core",
+          "c2": "Steel Pincers Sub-Core I",
+          "c3": "Steel Pincers Sub-Core II",
+          "c4": "Steel Pincers Sub-Core III"
+        }
+      },
       "wb": {
-        "name": "Wrecking Ball"
+        "name": "Wrecking Ball",
+        "core": {
+          "c1": "Wrecking Ball Core",
+          "c2": "Wrecking Ball Sub-Core I",
+          "c3": "Wrecking Ball Sub-Core II",
+          "c4": "Wrecking Ball Sub-Core III"
+        }
       },
       "ekg": {
-        "name": "EKG Cannon"
+        "name": "EKG Cannon",
+        "core": {
+          "c1": "EKG Cannon Core",
+          "c2": "EKG Cannon Sub-Core I",
+          "c3": "EKG Cannon Sub-Core II",
+          "c4": "EKG Cannon Sub-Core III"
+        }
       }
     },
     "c": {
@@ -88,7 +150,14 @@
         }
       },
       "nb": {
-        "name": "Nail Bat"
+        "name": "Nail Bat",
+        "core": {
+          "c1": "Nail Bat Core",
+          "c2": "Nail Bat Sub-Core I",
+          "c3": "Nail Bat Sub-Core II",
+          "c4": "Nail Bat Sub-Core III",
+          "c5": "Nail Bat Sub-Core IV"
+        }
       },
       "h": {
         "name": "Hardedge",
@@ -101,10 +170,22 @@
         }
       },
       "ms": {
-        "name": "Mythril Saber"
+        "name": "Mythril Saber",
+        "core": {
+          "c1": "Mythril Saber Core",
+          "c2": "Mythril Saber Sub-Core I",
+          "c3": "Mythril Saber Sub-Core II",
+          "c4": "Mythril Saber Sub-Core III"
+        }
       },
       "ts": {
-        "name": "Twin Stinger"
+        "name": "Twin Stinger",
+        "core": {
+          "c1": "Twin Stinger Core",
+          "c2": "Twin Stinger Sub-Core I",
+          "c3": "Twin Stinger Sub-Core II",
+          "c4": "Twin Stinger Sub-Core III"
+        }
       }
     },
     "t": {
@@ -120,19 +201,54 @@
         }
       },
       "mk": {
-        "name": "Metal Knuckles"
+        "name": "Metal Knuckles",
+        "core": {
+          "c1": "Metal Knuckles Core",
+          "c2": "Metal Knuckles Sub-Core I",
+          "c3": "Metal Knuckles Sub-Core II",
+          "c4": "Metal Knuckles Sub-Core III",
+          "c5": "Metal Knuckles Sub-Core IV",
+          "c6": "Metal Knuckles Sub-Core V"
+        }
       },
       "ss": {
-        "name": "Sonic Strikers"
+        "name": "Sonic Strikers",
+        "core": {
+          "c1": "Sonic Strikers Core",
+          "c2": "Sonic Strikers Sub-Core I",
+          "c3": "Sonic Strikers Sub-Core II",
+          "c4": "Sonic Strikers Sub-Core III",
+          "c5": "Sonic Strikers Sub-Core IV",
+          "c6": "Sonic Strikers Sub-Core V"
+        }
       },
       "fg": {
-        "name": "Feathered Gloves"
+        "name": "Feathered Gloves",
+        "core": {
+          "c1": "Feathered Glove Core",
+          "c2": "Feathered Glove Sub-Core I",
+          "c3": "Feathered Glove Sub-Core II",
+          "c4": "Feathered Glove Sub-Core III",
+          "c5": "Feathered Glove Sub-Core IV"
+        }
       },
       "mc": {
-        "name": "Mythril Claws"
+        "name": "Mythril Claws",
+        "core": {
+          "c1": "Mythril Claws Core",
+          "c2": "Mythril Claws Sub-Core I",
+          "c3": "Mythril Claws Sub-Core II",
+          "c4": "Mythril Claws Sub-Core III"
+        }
       },
       "pp": {
-        "name": "Purple Pain"
+        "name": "Purple Pain",
+        "core": {
+          "c1": "Purple Pain Core",
+          "c2": "Purple Pain Sub-Core I",
+          "c3": "Purple Pain Sub-Core II",
+          "c4": "Purple Pain Sub-Core III"
+        }
       }
     }
   },
@@ -153,7 +269,9 @@
     "PDEFHHP": "Physical Defense +{{value}} with High HP",
     "PDEFLHP": "Physical Defense +{{value}} with Low HP",
     "MDR%G": "Magic Damage Reduction {{value}}% when Guarding",
+    "MAXDR%G": "Max Damage Reduction {{value}}% when Guarding",
     "MDEFLHP": "Magic Defense +{{value}} with Low HP",
+    "MDEFHHP": "Magic Defense +{{value}} with High HP",
     "MPR%B": "MP Regeneration {{value}}% Boost",
     "ED%B": "Elemental Defense {{value}}% Boost",
     "HSMPCR%": "Healing Spells MP Cost Reduction {{value}}%",
@@ -168,6 +286,15 @@
     "BD%B": "Buff Duration {{value}}% Boost",
     "CAC": "Concentration Activation {{value}}%",
     "WACHT%B": "Weapon Ability Critical Hit Rate {{value}}% Boost",
+    "IDD%B": "Inflicted Debuff Duration {{value}}% Boost",
+    "FIRED%B": "Fire Damage +{{value}}% Boost",
+    "ICED%B": "Ice Damage +{{value}}% Boost",
+    "LIGHTD%B": "Lighting Damage +{{value}}% Boost",
+    "WINDD%B": "Wind Damage +{{value}}% Boost",
+    "EMD%B": "Elemental Materia Damage {{value}}% Boost",
+    "CHR%B": "Critical Hit Rate {{value}}% Boost",
+    "CHR%BLHP": "Critical Hit Rate {{value}}% Boost with low HP",
+    "CHD%B": "Critical Hit Damage {{value}}% Boost",
     "MAT": "New Materia",
     "REPRIEVE": "Reprieve",
     "TO": "Trade-Off",

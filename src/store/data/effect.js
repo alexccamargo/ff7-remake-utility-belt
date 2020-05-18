@@ -15,8 +15,12 @@ export const PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD = "PDR%G"
 export const PHYSICAL_DEFENSE_HIGH_HP = "PDEFHHP"
 export const PHYSICAL_DEFENSE_LOW_HP = "PDEFLHP"
 export const MAGIC_DAMAGE_REDUCTION_PERCENT_ON_GUARD = "MDR%G"
+export const MAX_DAMAGE_REDUCTION_PERCENT_ON_GUARD = "MAXDR%G"
 export const MAGIC_DEFENSE_LOW_HP = "MDEFLHP"
+export const MAGIC_DEFENSE_HIGH_HP = "MDEFHHP"
+
 export const BUFF_DURRATION_PERCENT_BOOST = "BD%B"
+export const INFLICTED_DEBUFF_DURATION_PERCENT_BOOST = "IDD%B"
 
 export const NEW_MATERIAL = "MAT"
 export const MP_REGEN_PERCENT_BOOST = "MPR%B"
@@ -32,6 +36,14 @@ export const CRIPPLING_DAMAGE_PERCENT_BOOST = "CD%B"
 export const WEAPON_ABILITY_CRITICAL_HIT_RATE_PERCENT_BOOST = "WACHT%B"
 export const SELF_HEALING_PERCENT_BOOST_LOW_HP = "SH%LHP"
 export const CONCENTRATION_ACTIVATION = "CAC"
+export const FIRE_DAMAGE_PERCENT_BOOST = "FIRED%B"
+export const ICE_DAMAGE_PERCENT_BOOST = "ICED%B"
+export const LIGHTING_DAMAGE_PERCENT_BOOST = "LIGHTD%B"
+export const WIND_DAMAGE_PERCENT_BOOST = "WINDD%B"
+export const ELEMENTAL_MATERIA_DAMAGE_PERCENT_BOOST = "EMD%B"
+export const CRITICAL_HIT_RATE_PERCENT_BOOST = "CHR%B"
+export const CRITICAL_HIT_DAMAGE_PERCENT_BOOST = "CHD%B"
+export const CRITICAL_HIT_HIT_PERCENT_BOOST_LOW_HP = "CHR%BLHP"
 
 export const REPRIEVE = "REPRIEVE"
 export const STAGGER_SIPHON = "STSIP"
@@ -41,60 +53,16 @@ export const BLOODSUCKER = "BLS"
 export const effectFactory = (effect) => {
   switch (effect.type) {
     case ATTACK_POWER:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, attackPower: (status.attackPower || 0) + Number.parseInt(effect.value) }
-        }
-      }
     case MAGIC_ATTACK_POWER:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, magicAttackPower: (status.magicAttackPower || 0) + Number.parseInt(effect.value) }
-        }
-      }
     case DEFENSE:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, defense: (status.defense || 0) + Number.parseInt(effect.value) }
-        }
-      }
-
     case MAGIC_DEFENSE:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, magicDefense: (status.magicDefense || 0) + Number.parseInt(effect.value) }
-        }
-      }
     case MAX_HP:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, maxHp: (status.maxHp || 0) + Number.parseInt(effect.value) }
-        }
-      }
     case MAX_MP:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, maxMp: (status.maxMp || 0) + Number.parseInt(effect.value) }
-        }
-      }
-
-    case NEW_MATERIAL:
-      return {
-        ...effect,
-        applyEffect: (status) => {
-          return { ...status, numMateria: (status.numMateria || 0) + 1 }
-        }
-      }
     case ATTACK_DAMAGE_PERCENT_BOOST:
     case TEMPEST_DAMAGE_PERCENT_BOOST:
     case PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD:
     case MAGIC_DAMAGE_REDUCTION_PERCENT_ON_GUARD:
+    case MAX_DAMAGE_REDUCTION_PERCENT_ON_GUARD:
     case ELEMENTAL_DEFENSE_PERCENT_BOOOST:
     case HEALING_SPELLS_MP_COST_REDUCTION:
     case SPEED:
@@ -112,10 +80,20 @@ export const effectFactory = (effect) => {
     case PHYSICAL_DEFENSE_HIGH_HP:
     case PHYSICAL_DEFENSE_LOW_HP:
     case MAGIC_DEFENSE_LOW_HP:
+    case MAGIC_DEFENSE_HIGH_HP:
     case SELF_HEALING_PERCENT_BOOST_LOW_HP:
     case CONCENTRATION_ACTIVATION:
     case AERIAL_ATTACK_DAMAGE_PERCENT_BOOST:
     case BUFF_DURRATION_PERCENT_BOOST:
+    case INFLICTED_DEBUFF_DURATION_PERCENT_BOOST:
+    case FIRE_DAMAGE_PERCENT_BOOST:
+    case ICE_DAMAGE_PERCENT_BOOST:
+    case LIGHTING_DAMAGE_PERCENT_BOOST:
+    case WIND_DAMAGE_PERCENT_BOOST:
+    case ELEMENTAL_MATERIA_DAMAGE_PERCENT_BOOST:
+    case CRITICAL_HIT_RATE_PERCENT_BOOST:
+    case CRITICAL_HIT_DAMAGE_PERCENT_BOOST:
+    case CRITICAL_HIT_HIT_PERCENT_BOOST_LOW_HP:
       return {
         ...effect,
         applyEffect: (status) => {
@@ -133,7 +111,13 @@ export const effectFactory = (effect) => {
           return { ...status, [effect.type]: true }
         }
       }
-
+    case NEW_MATERIAL:
+      return {
+        ...effect,
+        applyEffect: (status) => {
+          return { ...status, [NEW_MATERIAL]: (status[NEW_MATERIAL] || 0) + 1 }
+        }
+      }
     default:
       return null
   }
