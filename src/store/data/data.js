@@ -23,24 +23,26 @@ const mapWeapon = (weapon) => {
     magicDefense: weapon.mdef || 0,
     materia: weapon.mat || 0,
     connection: weapon.cmat || 0,
-    cores: (weapon.cs || []).map(mapCore)
+    cores: (weapon.cs || []).map((c, i) => mapCore(c, i))
   }
 
 }
 
-const mapCore = (core) => {
+const mapCore = (core, index) => {
+  const id = `c${index + 1}`
   return {
-    id: core.id,
+    id,
     cost: core.ct,
-    effects: (core.efs || []).map((e) => mapEffect(core, e))
+    effects: (core.efs || []).map((e, i) => mapEffect(e, id, core.ct, i))
   }
 }
 
-const mapEffect = (core, effect) => {
+const mapEffect = (effect, coreId, cost, index) => {
+  const id = `${coreId}e${index + 1}`
   return effectFactory({
-    id: `${core.id}${effect.id}`,
+    id,
+    cost,
     type: effect.t,
     value: effect.v,
-    cost: core.ct,
   })
 }
