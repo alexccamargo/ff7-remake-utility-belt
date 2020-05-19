@@ -10,13 +10,17 @@ const mapCharacter = (character) => {
   return {
     id: character.id,
     image: character.img,
-    weapons: (character.w || []).map(mapWeapon)
+    weapons: Object.keys(character.w || [])
+      .reduce((result, key) => {
+        result[key] = mapWeapon(key, character.w[key], )
+        return result
+      }, {})
   }
 }
 
-const mapWeapon = (weapon) => {
+const mapWeapon = (wpId, weapon) => {
   return {
-    id: weapon.id,
+    id: wpId,
     attackPower: weapon.ap || 0,
     magicAttackPower: weapon.map || 0,
     defense: weapon.def || 0,

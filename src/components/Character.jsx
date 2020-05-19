@@ -16,10 +16,10 @@ const Character = ({ t, character, spAmount, onSPChange }) => {
     return (
       <ul>
         {
-          weapons.map(w => (
-            <li key={w.id}>
-              <Link to={`/character/${character.id}/weapon/${w.id}`}>
-                {t(`weapon.${character.id}.${w.id}.name`)}
+          Object.keys(weapons).map(wpId => (
+            <li key={wpId}>
+              <Link to={`/character/${character.id}/weapon/${wpId}`}>
+                {t(`weapon.${character.id}.${wpId}.name`)}
               </Link>
             </li>
           ))

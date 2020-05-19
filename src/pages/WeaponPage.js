@@ -15,7 +15,7 @@ const WeaponPage = () => {
   const dispatch = useDispatch()
 
   const character = useSelector(state => selectCharacter(state, id))
-  const weapon = (character.weapons || []).find(w => w.id === wpId) || {}
+  const weapon = (character.weapons[wpId]) || {}
   const characterUserData = useSelector(state => selectUserDataByCharacter(state, id))
   const weaponUserData = useSelector(state => selectWeaponUserData(state, id, wpId))
 
