@@ -26,9 +26,12 @@ import {
   MAGIC_DEFENSE,
   MAX_HP,
   MAX_MP,
-  NEW_MATERIAL
+  NEW_MATERIA,
+  getConnectedAndSingleMateriaCounts
 } from '../store/data/effect'
 import { IconButton, Popover, Typography } from '@material-ui/core'
+
+import MateriaSlots from './MateriaSlots'
 
 const useStyles = makeStyles((theme) => ({
   listRoot: {
@@ -232,8 +235,11 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
 
   const renderWeaponStats = (selectedEffect) => {
     const stats = calculateStats(selectedEffect)
+    const materiaState = getConnectedAndSingleMateriaCounts(weapon, stats[NEW_MATERIA])
     return (
       <div>
+        <h3>Materia Slots</h3>
+        <MateriaSlots singleMateria={materiaState.singleMateria} connectedMateria={materiaState.connectedMateria}></MateriaSlots>
         <h3>Basic Stats</h3>
         <table className="weapon-stats">
           <thead>
@@ -255,7 +261,7 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
               <td>{stats[MAGIC_DEFENSE]}</td>
               <td>{stats[MAX_HP] || '-'}</td>
               <td>{stats[MAX_MP] || '-'}</td>
-              <td>{stats[NEW_MATERIAL] || '-'}</td>
+              <td>{stats[NEW_MATERIA] || '-'}</td>
             </tr>
           </tbody>
         </table>

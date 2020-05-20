@@ -25,7 +25,7 @@ export const REAR_ASSAULT_PERCENT_BOOST = "RA%B"
 export const INFLICTED_DEBUFF_DURATION_PERCENT_BOOST = "IDD%B"
 export const DEBUFF_RESISTANCE = "DR"
 
-export const NEW_MATERIAL = "MAT"
+export const NEW_MATERIA = "MAT"
 export const MP_REGEN_PERCENT_BOOST = "MPR%B"
 export const ELEMENTAL_DEFENSE_PERCENT_BOOOST = "ED%B"
 export const HEALING_SPELLS_MP_COST_REDUCTION = "HSMPCR%"
@@ -122,15 +122,38 @@ export const effectFactory = (effect) => {
           return { ...status, [effect.type]: true }
         }
       }
-    case NEW_MATERIAL:
+    case NEW_MATERIA:
       return {
         ...effect,
         applyEffect: (status) => {
-          return { ...status, [NEW_MATERIAL]: (status[NEW_MATERIAL] || 0) + 1 }
+          return { ...status, [NEW_MATERIA]: (status[NEW_MATERIA] || 0) + 1 }
         }
       }
     default:
       return null
+  }
+}
+
+export const getConnectedAndSingleMateriaCounts = (weapon, newMaterias) => {
+  console.log(weapon)
+  let { materia, connection, materiaGrowth } = weapon
+  let currMat = materia
+  let currConn = connection
+
+  for (let i = 0; i < currConn; i++) { currMat -= 2 }
+
+  for (let i = 0; i < newMaterias; i++) {
+    if (materiaGrowth[i] === "A") {
+      currMat++
+    } else {
+      currConn++
+      currMat -= 2
+    }
+  }
+
+  return {
+    singleMateria: currMat,
+    connectedMateria: currConn,
   }
 
 }

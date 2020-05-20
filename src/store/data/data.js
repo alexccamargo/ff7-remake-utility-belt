@@ -27,6 +27,7 @@ const mapWeapon = (wpId, weapon) => {
     magicDefense: weapon.mdef || 0,
     materia: weapon.mat || 0,
     connection: weapon.cmat || 0,
+    materiaGrowth: weapon.matg || [],
     cores: (weapon.cs || []).map((c, i) => mapCore(c, i))
   }
 
