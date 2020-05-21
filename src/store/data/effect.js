@@ -7,6 +7,7 @@ export const MAGIC_DEFENSE = "MDEF"
 export const SPEED = "SP"
 export const MAX_HP = "MAXHP"
 export const MAX_MP = "MAXMP"
+export const LUCK = "LUCK"
 export const ATTACK_DAMAGE_PERCENT_BOOST = "AD%B"
 export const AERIAL_ATTACK_DAMAGE_PERCENT_BOOST = "AAD%B"
 
@@ -64,6 +65,7 @@ export const effectFactory = (effect) => {
     case MAGIC_DEFENSE:
     case MAX_HP:
     case MAX_MP:
+    case LUCK:
     case ATTACK_DAMAGE_PERCENT_BOOST:
     case TEMPEST_DAMAGE_PERCENT_BOOST:
     case PHYSICAL_DAMAGE_REDUCTION_PERCENT_ON_GUARD:

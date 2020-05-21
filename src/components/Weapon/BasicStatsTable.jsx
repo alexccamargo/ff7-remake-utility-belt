@@ -16,9 +16,9 @@ const BasicStatsTable = ({ t, stats }) => {
 
   const getLabelValue = (type) => {
     return (
-      <div key={`bst-${type}`}>
+      <Box mx={2} key={`bst-${type}`}>
         {t(`common.${type}`)}: {stats[type] || '-'}
-      </div>
+      </Box>
     )
   }
 
@@ -31,11 +31,13 @@ const BasicStatsTable = ({ t, stats }) => {
       MAGIC_DEFENSE,
       MAX_HP,
       MAX_MP
-    ].map(x => getLabelValue(x))
+    ]
+    .filter(x => stats[x])
+    .map(x => getLabelValue(x))
   }
 
   return (
-    <Box mb={2}>
+    <Box mb={2} display={'flex'}>
       {getStats()}
     </Box>
   )
