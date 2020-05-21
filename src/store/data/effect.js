@@ -49,6 +49,7 @@ export const CRITICAL_HIT_DAMAGE_PERCENT_BOOST = "CHD%B"
 export const CRITICAL_HIT_HIT_PERCENT_BOOST_LOW_HP = "CHR%BLHP"
 export const MAGIC_PERCENT_BOOST_FULL_MP = "M%BFMP"
 export const ATTACK_SPELLS_MP_COST_REDACTION_PERCENT = "ASMPCR%"
+export const MAGIC_PERCENT_BOOST_WITH_FULL_HP = "M%BFHP"
 
 export const REPRIEVE = "REPRIEVE"
 export const STAGGER_SIPHON = "STSIP"
@@ -104,6 +105,7 @@ export const effectFactory = (effect) => {
     case ATB_CHARGE_RATE_PERCENT_BOOST:
     case MAGIC_PERCENT_BOOST_FULL_MP:
     case ATTACK_SPELLS_MP_COST_REDACTION_PERCENT:
+    case MAGIC_PERCENT_BOOST_WITH_FULL_HP:
 
       return {
         ...effect,

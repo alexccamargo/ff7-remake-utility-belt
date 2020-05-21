@@ -24,14 +24,13 @@ import {
   MAGIC_ATTACK_POWER,
   DEFENSE,
   MAGIC_DEFENSE,
-  MAX_HP,
-  MAX_MP,
   NEW_MATERIA,
   getConnectedAndSingleMateriaCounts
 } from '../store/data/effect'
 import { IconButton, Popover, Typography } from '@material-ui/core'
 
 import MateriaSlots from './MateriaSlots'
+import BasicStatsTable from './Weapon/BasicStatsTable'
 
 const useStyles = makeStyles((theme) => ({
   listRoot: {
@@ -192,10 +191,10 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
 
   const calculateStats = (selectedEffect) => {
     let stats = {
-      [ATTACK_POWER]: weapon.attackPower,
-      [MAGIC_ATTACK_POWER]: weapon.magicAttackPower,
-      [DEFENSE]: weapon.defense,
-      [MAGIC_DEFENSE]: weapon.magicDefense
+      [ATTACK_POWER]: weapon[ATTACK_POWER],
+      [MAGIC_ATTACK_POWER]: weapon[MAGIC_ATTACK_POWER],
+      [DEFENSE]: weapon[DEFENSE],
+      [MAGIC_DEFENSE]: weapon[MAGIC_DEFENSE]
     }
 
     selectedEffect.forEach((effect) => {
@@ -241,31 +240,7 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
         <h3>Materia Slots</h3>
         <MateriaSlots singleMateria={materiaState.singleMateria} connectedMateria={materiaState.connectedMateria}></MateriaSlots>
         <h3>Basic Stats</h3>
-        <table className="weapon-stats">
-          <thead>
-            <tr>
-              <th>AP</th>
-              <th>MP</th>
-              <th>Def</th>
-              <th>MDef</th>
-              <th>Max HP</th>
-              <th>Max MP</th>
-              <th>Materia</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{stats[ATTACK_POWER]}</td>
-              <td>{stats[MAGIC_ATTACK_POWER]}</td>
-              <td>{stats[DEFENSE]}</td>
-              <td>{stats[MAGIC_DEFENSE]}</td>
-              <td>{stats[MAX_HP] || '-'}</td>
-              <td>{stats[MAX_MP] || '-'}</td>
-              <td>{stats[NEW_MATERIA] || '-'}</td>
-            </tr>
-          </tbody>
-        </table>
-
+        <BasicStatsTable stats={stats}></BasicStatsTable>
         {renderSpecialModifiers(stats)}
         {renderSpecialEffects(stats)}
       </div>

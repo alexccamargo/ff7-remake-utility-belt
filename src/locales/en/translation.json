@@ -1,4 +1,12 @@
 {
+  "common": {
+    "AP":"Attack Power",
+    "MAP":"Magic Attack Power",
+    "DEF": "Defense",
+    "MDEF": "Magic Defense",
+    "MAXHP": "Max HP",
+    "MAXMP": "Max MP"
+  },
   "character": {
     "a": "Aerith",
     "b": "Barret",
@@ -305,6 +313,7 @@
     "TO": "Trade-Off",
     "STSIP": "Stagger Siphon",
     "BLS": "Blood Sucker",
+    "M%BFHP": "Magic {{value}}% Boost with Full HP",
     "details": {
       "REPRIEVE": "Avoid incapacitation once per battle. Does not work against instant death attacks or when HP is at 1.",
       "TO": "Recover MP when receiving significant damage.",

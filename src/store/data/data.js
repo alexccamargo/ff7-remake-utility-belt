@@ -21,10 +21,10 @@ const mapCharacter = (character) => {
 const mapWeapon = (wpId, weapon) => {
   return {
     id: wpId,
-    attackPower: weapon.ap || 0,
-    magicAttackPower: weapon.map || 0,
-    defense: weapon.def || 0,
-    magicDefense: weapon.mdef || 0,
+    AP: weapon.ap || 0,
+    MAP: weapon.map || 0,
+    DEF: weapon.def || 0,
+    MDEF: weapon.mdef || 0,
     materia: weapon.mat || 0,
     connection: weapon.cmat || 0,
     materiaGrowth: weapon.matg || [],
