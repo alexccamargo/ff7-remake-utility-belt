@@ -1,4 +1,4 @@
-import { ATTACK_POWER, MAGIC_ATTACK_POWER, DEFENSE, MAGIC_DEFENSE } from "../store/data/effect"
+import { ATTACK_POWER, MAGIC_ATTACK_POWER, DEFENSE, MAGIC_DEFENSE, NEW_MATERIA } from "../store/data/effect"
 
 export const getStats = (weapon, effects) => {
 
@@ -26,4 +26,27 @@ export const getTotalSP = (weapon, effects) => {
 
   const allWeaponEffects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, e]))
   return effects.map(ne => allWeaponEffects.get(ne).cost).reduce((a, b) => a + b, 0)
+}
+
+export const getConnectedAndSingleMateriaCounts = (weapon, stats) => {
+  let { materia, connection, materiaGrowth } = weapon
+  let currMat = materia
+  let currConn = connection
+
+  for (let i = 0; i < currConn; i++) { currMat -= 2 }
+
+  for (let i = 0; i < stats[NEW_MATERIA]; i++) {
+    if (materiaGrowth[i] === "A") {
+      currMat++
+    } else {
+      currConn++
+      currMat -= 2
+    }
+  }
+
+  return {
+    singleMateria: currMat,
+    connectedMateria: currConn,
+  }
+
 }

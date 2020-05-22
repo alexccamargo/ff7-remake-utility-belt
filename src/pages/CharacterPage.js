@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { useParams } from 'react-router'
@@ -9,7 +9,7 @@ import Character from '../components/Character'
 import { setSPAmount, storeUserData } from '../store/actions/userDataActions'
 import { selectUserDataByCharacter, selectWeaponUserDataByCharacter } from '../store/selectors/userDataSelector'
 import { selectCharacter } from '../store/selectors/characterSelector'
-import { Typography } from '@material-ui/core'
+import { Typography, Box, TextField } from '@material-ui/core'
 
 const CharacterPage = ({ t }) => {
   let { id } = useParams()
@@ -19,8 +19,11 @@ const CharacterPage = ({ t }) => {
 
   const dispatch = useDispatch()
 
-  const handleSpChange = (spAmount) => {
-    dispatch(setSPAmount(character.id, spAmount))
+  const [totalSP, setTotalSP] = useState(characterUserData.spAmount)
+
+  const handleSpChange = (e) => {
+    setTotalSP(e.target.value)
+    dispatch(setSPAmount(character.id, e.target.value))
   }
 
   const saveData = () => { dispatch(storeUserData()) }
@@ -30,19 +33,22 @@ const CharacterPage = ({ t }) => {
 
     if (!character) return <p>Unable to find character</p>
 
-    return <Character character={character} weaponsUserData={weaponsUserData} spAmount={characterUserData.spAmount} onSPChange={handleSpChange}></Character>
+    return <Character character={character} totalSP={totalSP} weaponsUserData={weaponsUserData}></Character>
 
   }
 
   return (
-    <div>
-      <Link to={"/"}>Back to character selection</Link>
-      <Typography variant="h2" mb={1}>
-      {t(`character.${character.id}`)}
-      </Typography>
+    <Box>
+      <Box ml={2}>
+        <Link to={"/"}>Back to character selection</Link>
+        <Typography variant="h2" mb={1}>
+          {t(`character.${character.id}`)}
+        </Typography>
+        <TextField label="Total SP:" value={totalSP} onChange={handleSpChange} />
+      </Box>
 
       {renderCharacter()}
-    </div>
+    </Box>
   )
 }
 

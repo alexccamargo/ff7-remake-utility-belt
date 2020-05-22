@@ -137,27 +137,3 @@ export const effectFactory = (effect) => {
       return null
   }
 }
-
-export const getConnectedAndSingleMateriaCounts = (weapon, newMaterias) => {
-  console.log(weapon)
-  let { materia, connection, materiaGrowth } = weapon
-  let currMat = materia
-  let currConn = connection
-
-  for (let i = 0; i < currConn; i++) { currMat -= 2 }
-
-  for (let i = 0; i < newMaterias; i++) {
-    if (materiaGrowth[i] === "A") {
-      currMat++
-    } else {
-      currConn++
-      currMat -= 2
-    }
-  }
-
-  return {
-    singleMateria: currMat,
-    connectedMateria: currConn,
-  }
-
-}

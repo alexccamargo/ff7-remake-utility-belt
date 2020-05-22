@@ -20,14 +20,10 @@ import { translate } from 'react-i18next'
 
 import './Weapon.css'
 import * as effectTypes from '../store/data/effect'
-import {
-  NEW_MATERIA,
-  getConnectedAndSingleMateriaCounts
-} from '../store/data/effect'
 
 import MateriaSlots from './MateriaSlots'
 import BasicStatsTable from './Weapon/BasicStatsTable'
-import { getStats, getTotalSP } from '../shared/StatsCalculator'
+import { getStats, getTotalSP, getConnectedAndSingleMateriaCounts } from '../shared/StatsCalculator'
 
 const useStyles = makeStyles((theme) => ({
   listRoot: {
@@ -216,7 +212,7 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
 
   const renderWeaponStats = (selectedEffect) => {
     const stats = getStats(weapon, selectedEffect)
-    const materiaState = getConnectedAndSingleMateriaCounts(weapon, stats[NEW_MATERIA])
+    const materiaState = getConnectedAndSingleMateriaCounts(weapon, stats)
     return (
       <div>
         <h3>Materia Slots</h3>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box } from '@material-ui/core'
 
 
 const MateriaSlots = ({ singleMateria, connectedMateria }) => {
@@ -17,9 +18,9 @@ const MateriaSlots = ({ singleMateria, connectedMateria }) => {
   }
 
   return (
-    <div>
+    <Box display={"inherit"}>
       {getSlots()}
-    </div>
+    </Box>
   )
 }
 
