@@ -37,7 +37,7 @@ const BasicStatsTable = ({ t, stats }) => {
   }
 
   return (
-    <Box mb={2} display={'flex'}>
+    <Box mb={2} display={'flex'} flexWrap="wrap">
       {getStats()}
     </Box>
   )
