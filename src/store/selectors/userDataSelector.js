@@ -7,6 +7,18 @@ export const selectUserDataByCharacter = createSelector(
   (characters, characterId) => (characters && characters[characterId]) || { ...characterInitialState }
 )
 
+export const selectWeaponUserDataByCharacter = createSelector(
+  state => state.userData.weapons,
+  (_, characterId) => characterId,
+  (weapons, characterId) => {
+    return (weapons && Object.keys(weapons).filter(key => key.startsWith(characterId))
+    .reduce((a,b) => {
+      a[b] = weapons[b]
+      return a
+    },{}))
+  }
+)
+
 export const selectWeaponUserData = createSelector(
   state => state.userData.weapons,
   (_, characterId, weaponId) => ({ characterId, weaponId }),

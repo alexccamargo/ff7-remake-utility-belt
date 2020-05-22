@@ -1,9 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 import { translate } from 'react-i18next'
-import TextField from '@material-ui/core/TextField'
+import { TextField, ListItem, List, Box, Typography, Paper, makeStyles } from '@material-ui/core'
+import { getStats } from '../shared/StatsCalculator'
+import BasicStatsTable from './Weapon/BasicStatsTable'
 
-const Character = ({ t, character, spAmount, onSPChange }) => {
+const useStyles = makeStyles({
+  title: {
+    paddingBottom: "1.5rem"
+  },
+})
+
+const Character = ({ t, character, weaponsUserData, spAmount, onSPChange }) => {
+  const classes = useStyles()
   const weapons = character.weapons || []
   const [totalSP, setTotalSP] = useState(spAmount)
 
@@ -12,29 +21,38 @@ const Character = ({ t, character, spAmount, onSPChange }) => {
     onSPChange(e.target.value)
   }
 
+  const getWeaponStats = (id) => {
+    const wUserData = weaponsUserData[`${character.id}${id}`] || {}
+    return getStats(weapons[id], wUserData.effects)
+  }
+
   const renderWeaponLinks = () => {
     return (
-      <ul>
+      <List>
         {
           Object.keys(weapons).map(wpId => (
-            <li key={wpId}>
-              <Link to={`/character/${character.id}/weapon/${wpId}`}>
-                {t(`weapon.${character.id}.${wpId}.name`)}
-              </Link>
-            </li>
+            <ListItem key={wpId}>
+              <Paper className="width-100" elevation={3}>
+                <Box mb={2} p={3}>
+                  <Typography className={classes.title} variant="h5" mb={1}>
+                    <Link to={`/character/${character.id}/weapon/${wpId}`}>
+                      {t(`weapon.${character.id}.${wpId}.name`)}
+                    </Link>
+                  </Typography>
+                  <BasicStatsTable stats={getWeaponStats(wpId)}></BasicStatsTable>
+                </Box>
+              </Paper>
+            </ListItem>
           ))
         }
-      </ul>
+      </List>
     )
   }
 
   return (
     <div>
-      <h1>{t(`character.${character.id}`)}</h1>
       <TextField id="standard-basic" label="Total SP:" value={totalSP} onChange={handleTotalSPChange} />
-      <ul>
-        {renderWeaponLinks()}
-      </ul>
+      {renderWeaponLinks()}
     </div>
   )
 }

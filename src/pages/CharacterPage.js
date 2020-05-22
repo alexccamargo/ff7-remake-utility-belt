@@ -7,13 +7,16 @@ import { Link } from 'react-router-dom'
 
 import Character from '../components/Character'
 import { setSPAmount, storeUserData } from '../store/actions/userDataActions'
-import { selectUserDataByCharacter } from '../store/selectors/userDataSelector'
+import { selectUserDataByCharacter, selectWeaponUserDataByCharacter } from '../store/selectors/userDataSelector'
 import { selectCharacter } from '../store/selectors/characterSelector'
+import { Typography } from '@material-ui/core'
 
-const CharacterPage = () => {
+const CharacterPage = ({ t }) => {
   let { id } = useParams()
   const character = useSelector(state => selectCharacter(state, id))
   const characterUserData = useSelector(state => selectUserDataByCharacter(state, id))
+  const weaponsUserData = useSelector(state => selectWeaponUserDataByCharacter(state, id))
+
   const dispatch = useDispatch()
 
   const handleSpChange = (spAmount) => {
@@ -27,13 +30,17 @@ const CharacterPage = () => {
 
     if (!character) return <p>Unable to find character</p>
 
-    return <Character character={character} spAmount={characterUserData.spAmount} onSPChange={handleSpChange}></Character>
+    return <Character character={character} weaponsUserData={weaponsUserData} spAmount={characterUserData.spAmount} onSPChange={handleSpChange}></Character>
 
   }
 
   return (
     <div>
       <Link to={"/"}>Back to character selection</Link>
+      <Typography variant="h2" mb={1}>
+      {t(`character.${character.id}`)}
+      </Typography>
+
       {renderCharacter()}
     </div>
   )

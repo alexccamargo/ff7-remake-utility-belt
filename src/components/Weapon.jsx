@@ -12,25 +12,22 @@ import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
-import Switch from '@material-ui/core/Switch'
+import { Switch, IconButton, Popover, Typography } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import './Weapon.css'
 import { translate } from 'react-i18next'
+
+import './Weapon.css'
 import * as effectTypes from '../store/data/effect'
 import {
-  ATTACK_POWER,
-  MAGIC_ATTACK_POWER,
-  DEFENSE,
-  MAGIC_DEFENSE,
   NEW_MATERIA,
   getConnectedAndSingleMateriaCounts
 } from '../store/data/effect'
-import { IconButton, Popover, Typography } from '@material-ui/core'
 
 import MateriaSlots from './MateriaSlots'
 import BasicStatsTable from './Weapon/BasicStatsTable'
+import { getStats, getTotalSP } from '../shared/StatsCalculator'
 
 const useStyles = makeStyles((theme) => ({
   listRoot: {
@@ -90,13 +87,12 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
 
   console.log(weapon.cores || [])
   console.log((weapon.cores || []).flatMap(c => c.effects))
-  const effects = new Map((weapon.cores || []).flatMap(c => c.effects).map(e => [e.id, e]))
 
   const [selectedEffectState, setSelectedEffectState] = useState([...selectedEffects])
   const [amountState, setAmountState] = useState(spAmount)
 
   const updateAmount = () => {
-    const totalValue = selectedEffectState.map(ne => effects.get(ne).cost).reduce((a, b) => a + b, 0)
+    const totalValue = getTotalSP(weapon, selectedEffectState)
     setAmountState(spAmount - totalValue)
   }
   useEffect(updateAmount, [selectedEffectState])
@@ -189,20 +185,6 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
     )
   }
 
-  const calculateStats = (selectedEffect) => {
-    let stats = {
-      [ATTACK_POWER]: weapon[ATTACK_POWER],
-      [MAGIC_ATTACK_POWER]: weapon[MAGIC_ATTACK_POWER],
-      [DEFENSE]: weapon[DEFENSE],
-      [MAGIC_DEFENSE]: weapon[MAGIC_DEFENSE]
-    }
-
-    selectedEffect.forEach((effect) => {
-      stats = effects.get(effect).applyEffect(stats)
-    })
-    return stats
-  }
-
   const renderSpecialModifiers = (stats) => {
     const items = specialModifiers
       .filter(smod => stats[smod])
@@ -233,7 +215,7 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
   }
 
   const renderWeaponStats = (selectedEffect) => {
-    const stats = calculateStats(selectedEffect)
+    const stats = getStats(weapon, selectedEffect)
     const materiaState = getConnectedAndSingleMateriaCounts(weapon, stats[NEW_MATERIA])
     return (
       <div>
