@@ -16,8 +16,8 @@ const BasicStatsTable = ({ t, stats }) => {
 
   const getLabelValue = (type) => {
     return (
-      <Box mx={2} key={`bst-${type}`}>
-        {t(`common.${type}`)}: {stats[type] || '-'}
+      <Box mr={2} key={`bst-${type}`}>
+        <strong>{t(`common.${type}`)}:</strong> {stats[type] || '-'}
       </Box>
     )
   }

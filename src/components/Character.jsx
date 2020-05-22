@@ -8,8 +8,13 @@ import MateriaSlots from './MateriaSlots'
 
 const useStyles = makeStyles({
   title: {
-    paddingBottom: "1.5rem"
+    paddingBottom: "1rem"
   },
+  materiaLabel: {
+    fontSize: "16px",
+    display: "inline-block",
+    paddingBottom: "0.5rem"
+  }
 })
 
 const Character = ({ t, character, weaponsUserData, totalSP }) => {
@@ -27,19 +32,25 @@ const Character = ({ t, character, weaponsUserData, totalSP }) => {
       <ListItem key={wpId}>
         <Paper className="width-100" elevation={3}>
           <Box mb={2} p={3}>
-            <Typography className={classes.title} variant="h5" mb={1}>
+            <Typography className={classes.title} variant="h5">
               <Link to={`/character/${character.id}/weapon/${wpId}`} >
                 {t(`weapon.${character.id}.${wpId}.name`)}
               </Link>
-              <Box display={"inline-block"} position={"relative"} top={10} ml={3}>
+            </Typography>
+            <Box>
+            <Typography className={classes.materiaLabel} variant="subtitle1"><strong>SP Remaing: </strong>{totalSP - effectTotalSP}</Typography>
+            </Box>
+            <Box display={"flex"} alignItems={"top"} mb={2}>
+              <Typography className={classes.materiaLabel} variant="subtitle1"><strong>Materia Slot:</strong></Typography>
+              <Box display={"inline-block"} position={"relative"} ml={1}>
                 <MateriaSlots singleMateria={materiaState.singleMateria} connectedMateria={materiaState.connectedMateria}></MateriaSlots>
               </Box>
-              <Box display={"inline-block"} position={"relative"} top={2} ml={3}>SP Remaing: {totalSP - effectTotalSP}</Box>
-            </Typography>
+            </Box>
+
             <BasicStatsTable stats={stats}></BasicStatsTable>
           </Box>
         </Paper>
-      </ListItem>
+      </ListItem >
     )
   }
 
