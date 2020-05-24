@@ -3,12 +3,19 @@
     "language": "EN"
   },
   "common": {
+    "attr": "Basic attributes",
+    "materia-slots": "Materia Slots",
+    "SP":  "SP",
+    "SP-remaing": "SP Remaing",
+    "total-SP": "Total SP",
     "AP":"Attack Power",
     "MAP":"Magic Attack Power",
     "DEF": "Defense",
     "MDEF": "Magic Defense",
     "MAXHP": "Max HP",
-    "MAXMP": "Max MP"
+    "MAXMP": "Max MP",
+    "back-to-char": "Back to character selection",
+    "back-to-weapon": "Back to weapon selection"
   },
   "character": {
     "a": "Aerith",

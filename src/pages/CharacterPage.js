@@ -43,11 +43,11 @@ const CharacterPage = () => {
   return (
     <Box>
       <Box ml={2}>
-        <Link to={"/"}>Back to character selection</Link>
+        <Link to={"/"}>{t("common.back-to-char")}</Link>
         <Typography variant="h2" mb={1}>
           {t(`character.${character.id}`)}
         </Typography>
-        <TextField label="Total SP:" value={totalSP} onChange={handleSpChange} />
+        <TextField label={ `${t("common.total-SP")}:`} value={totalSP} onChange={handleSpChange} />
       </Box>
 
       {renderCharacter()}

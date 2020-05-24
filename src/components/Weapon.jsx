@@ -80,7 +80,7 @@ const spEffect = [
 
 const Weapon = ({ character, weapon, spAmount, selectedEffects, onSelectedEffectsChange }) => {
   const { t } = useTranslation();
-  
+
   const classes = useStyles()
 
   console.log(weapon.cores || [])
@@ -217,9 +217,9 @@ const Weapon = ({ character, weapon, spAmount, selectedEffects, onSelectedEffect
     const materiaState = getConnectedAndSingleMateriaCounts(weapon, stats)
     return (
       <div>
-        <h3>Materia Slots</h3>
+        <h3>{t("common.materia-slots")}</h3>
         <MateriaSlots singleMateria={materiaState.singleMateria} connectedMateria={materiaState.connectedMateria}></MateriaSlots>
-        <h3>Basic Stats</h3>
+        <h3>{t("common.attr")}</h3>
         <BasicStatsTable stats={stats}></BasicStatsTable>
         {renderSpecialModifiers(stats)}
         {renderSpecialEffects(stats)}
@@ -243,7 +243,7 @@ const Weapon = ({ character, weapon, spAmount, selectedEffects, onSelectedEffect
     <div>
       <h1>{t(`character.${character.id}`)}</h1>
       <h2>{t(`weapon.${character.id}.${weapon.id}.name`)}</h2>
-      <h3>SP: {amountState}/{spAmount}</h3>
+      <h3>{t("common.SP")}: {amountState}/{spAmount}</h3>
       {renderWeaponStats(selectedEffectState)}
       {renderCores()}
     </div>

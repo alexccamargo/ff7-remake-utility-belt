@@ -7,8 +7,10 @@ import Weapon from '../components/Weapon'
 import { selectCharacter } from '../store/selectors/characterSelector'
 import { selectUserDataByCharacter, selectWeaponUserData } from '../store/selectors/userDataSelector'
 import { setSelectedEffects, storeUserData } from '../store/actions/userDataActions'
+import { useTranslation } from 'react-i18next'
 
 const WeaponPage = () => {
+  const { t } = useTranslation();
 
   let { id, wpId } = useParams()
 
@@ -39,7 +41,7 @@ const WeaponPage = () => {
 
   return (
     <div>
-      <Link to={`/character/${id}`}>Back to weapon selection</Link>
+      <Link to={`/character/${id}`}>{t("common.back-to-weapon")}</Link>
       {renderCharacter()}
     </div>
   )

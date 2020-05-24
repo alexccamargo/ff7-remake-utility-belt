@@ -2,6 +2,21 @@
   "app": {
     "language": "PT"
   },
+  "common": {
+    "attr": "Atributos Básicos",
+    "materia-slots": "Espaços de Materia ",
+    "SP":  "PH",
+    "SP-remaing": "PH não utilizados",
+    "total-SP": "Total de PH",
+    "AP": "Ataque",
+    "MAP": "Ataque mágico",
+    "DEF": "Defesa",
+    "MDEF": "Defesa mágica",
+    "MAXHP": "Máx. PV",
+    "MAXMP": "Máx. PV",
+    "back-to-char": "Voltar à seleçāo de personagem",
+    "back-to-weapon": "Voltar à seleçāo de armas"
+  },
   "character": {
     "a": "Aerith",
     "b": "Barret",
@@ -11,176 +26,310 @@
   "weapon": {
     "a": {
       "gs": {
-        "name": "Guard Stick",
+        "name": "Bastāo Protetor",
         "core": {
-          "c1": "Guard Stick Core",
-          "c2": "Guard Stick Sub-Core I",
-          "c3": "Guard Stick Sub-Core II",
-          "c4": "Guard Stick Sub-Core III",
-          "c5": "Guard Stick Sub-Core IV"
+          "c1": "Núcleo de Bastāo Protetor",
+          "c2": "Subnúcleo de Bastāo Protetor I",
+          "c3": "Subnúcleo de Bastāo Protetor II",
+          "c4": "Subnúcleo de Bastāo Protetor III",
+          "c5": "Subnúcleo de Bastāo Protetor IV"
         }
       },
       "ss": {
-        "name": "Silver Staff"
+        "name": "Cajado de Prata",
+        "core": {
+          "c1": "Núcleo de Cajado de Prata",
+          "c2": "Subnúcleo de Cajado de Prata I",
+          "c3": "Subnúcleo de Cajado de Prata II",
+          "c4": "Subnúcleo de Cajado de Prata III",
+          "c5": "Subnúcleo de Cajado de Prata IV"
+        }
       },
       "as": {
-        "name": "Arcane Scepter"
+        "name": "Cetro Arcano",
+        "core": {
+          "c1": "Núcleo de Cetro Arcano",
+          "c2": "Subnúcleo de Cetro Arcano I",
+          "c3": "Subnúcleo de Cetro Arcano II",
+          "c4": "Subnúcleo de Cetro Arcano III",
+          "c5": "Subnúcleo de Cetro Arcano IV"
+        }
       },
       "mr": {
-        "name": "Mythril Rod"
+        "name": "Bastāo de Mithril",
+        "core": {
+          "c1": "Núcleo de Bastāo de Mithril",
+          "c2": "Subnúcleo de Bastāo de Mithril I",
+          "c3": "Subnúcleo de Bastāo de Mithril II",
+          "c4": "Subnúcleo de Bastāo de Mithril III"
+        }
       },
       "bs": {
-        "name": "Bladed Staff"
+        "name": "Cajado Laminado",
+        "core": {
+          "c1": "Núcleo de Cajado Laminado",
+          "c2": "Subnúcleo de Cajado Laminado I",
+          "c3": "Subnúcleo de Cajado Laminado II",
+          "c4": "Subnúcleo de Cajado Laminado III",
+          "c5": "Subnúcleo de Cajado Laminado IV"
+        }
       },
       "rs": {
-        "name": "Reinforced Staff"
+        "name": "Bastāo Maciço",
+        "core": {
+          "c1": "Núcleo de Bastāo Maciço",
+          "c2": "Subnúcleo de Bastāo Maciço I",
+          "c3": "Subnúcleo de Bastāo Maciço II",
+          "c4": "Subnúcleo de Bastāo Maciço III"
+        }
       }
     },
     "b": {
       "gg": {
-        "name": "Gatling Gun",
+        "name": "Metralhadora",
         "core": {
-          "c1": "Gatling Gun Core",
-          "c2": "Gatling Gun Sub-Core I",
-          "c3": "Gatling Gun Sub-Core II",
-          "c4": "Gatling Gun Sub-Core III",
-          "c5": "Gatling Gun Sub-Core IV",
-          "c6": "Gatling Gun Sub-Core V"
+          "c1": "Núcleo de Metralhadora",
+          "c2": "Subnúcleo de Metralhadora I",
+          "c3": "Subnúcleo de Metralhadora II",
+          "c4": "Subnúcleo de Metralhadora III",
+          "c5": "Subnúcleo de Metralhadora IV",
+          "c6": "Subnúcleo de Metralhadora V"
         }
       },
       "lmg": {
-        "name": "Light Machine Gun"
+        "name": "Metralhadora Leve",
+        "core": {
+          "c1": "Núcleo de Metralhadora Leve",
+          "c2": "Subnúcleo de Metralhadora Leve I",
+          "c3": "Subnúcleo de Metralhadora Leve II",
+          "c4": "Subnúcleo de Metralhadora Leve III",
+          "c5": "Subnúcleo de Metralhadora Leve IV",
+          "c6": "Subnúcleo de Metralhadora Leve V"
+        }
       },
       "bb": {
-        "name": "Big Bertha",
+        "name": "Obuseiro",
         "core": {
-          "c1": "Big Bertha Core",
-          "c2": "Big Bertha Sub-Core I",
-          "c3": "Big Bertha Sub-Core II",
-          "c4": "Big Bertha Sub-Core III"
+          "c1": "Núcleo de Obuseiro",
+          "c2": "Subnúcleo de Obuseiro I",
+          "c3": "Subnúcleo de Obuseiro II",
+          "c4": "Subnúcleo de Obuseiro III"
+        }
+      },
+      "sp": {
+        "name": "Tenazes de Aço",
+        "core": {
+          "c1": "Núcleo de Tenazes de Aço",
+          "c2": "Subnúcleo de Tenazes de Aço I",
+          "c3": "Subnúcleo de Tenazes de Aço II",
+          "c4": "Subnúcleo de Tenazes de Aço III"
         }
       },
       "wb": {
-        "name": "Wrecking Ball"
+        "name": "Bola Demolidora",
+        "core": {
+          "c1": "Núcleo de Bola Demolidora",
+          "c2": "Subnúcleo de Bola Demolidora I",
+          "c3": "Subnúcleo de Bola Demolidora II",
+          "c4": "Subnúcleo de Bola Demolidora III"
+        }
       },
       "ekg": {
-        "name": "EKG Cannon"
+        "name": "Canhāo Pulsante",
+        "core": {
+          "c1": "Núcleo de Canhāo Pulsante",
+          "c2": "Subnúcleo de Canhāo Pulsante I",
+          "c3": "Subnúcleo de Canhāo Pulsante II",
+          "c4": "Subnúcleo de Canhāo Pulsante III"
+        }
       }
     },
     "c": {
       "bs": {
-        "name": "Buster Sword",
+        "name": "Espada Destruidora",
         "core": {
-          "c1": "Buster Sword Core",
-          "c2": "Buster Sword Sub-Core I",
-          "c3": "Buster Sword Sub-Core II",
-          "c4": "Buster Sword Sub-Core III",
-          "c5": "Buster Sword Sub-Core IV",
-          "c6": "Buster Sword Sub-Core V"
+          "c1": "Núcleo de Espada Destruidora",
+          "c2": "Subnúcleo de Espada Destruidora I",
+          "c3": "Subnúcleo de Espada Destruidora II",
+          "c4": "Subnúcleo de Espada Destruidora III",
+          "c5": "Subnúcleo de Espada Destruidora IV",
+          "c6": "Subnúcleo de Espada Destruidora V"
         }
       },
       "ib": {
-        "name": "Iron Blade",
+        "name": "Lâmina de Ferro",
         "core": {
-          "c1": "Iron Blade Core",
-          "c2": "Iron Blade Sub-Core I",
-          "c3": "Iron Blade Sub-Core II",
-          "c4": "Iron Blade Sub-Core III",
-          "c5": "Iron Blade Sub-Core IV",
-          "c6": "Iron Blade Sub-Core V"
+          "c1": "Núcleo de Lâmina de Ferro",
+          "c2": "Subnúcleo de Lâmina de Ferro I",
+          "c3": "Subnúcleo de Lâmina de Ferro II",
+          "c4": "Subnúcleo de Lâmina de Ferro III",
+          "c5": "Subnúcleo de Lâmina de Ferro IV",
+          "c6": "Subnúcleo de Lâmina de Ferro V"
         }
       },
       "nb": {
-        "name": "Nail Bat"
+        "name": "Taco de Pregos",
+        "core": {
+          "c1": "Núcleo de Taco de Pregos",
+          "c2": "Subnúcleo de Taco de Pregos I",
+          "c3": "Subnúcleo de Taco de Pregos II",
+          "c4": "Subnúcleo de Taco de Pregos III",
+          "c5": "Subnúcleo de Taco de Pregos IV"
+        }
       },
       "h": {
-        "name": "Hardedge",
+        "name": "Cortesseco",
         "core": {
-          "c1": "Hardedge Core",
-          "c2": "Hardedge Sub-Core I",
-          "c3": "Hardedge Sub-Core II",
-          "c4": "Hardedge Sub-Core III",
-          "c5": "Hardedge Sub-Core IV"
+          "c1": "Núcleo de Cortesseco",
+          "c2": "Subnúcleo de Cortesseco I",
+          "c3": "Subnúcleo de Cortesseco II",
+          "c4": "Subnúcleo de Cortesseco III",
+          "c5": "Subnúcleo de Cortesseco IV"
         }
       },
       "ms": {
-        "name": "Mythril Saber"
+        "name": "Sabre de Mithril",
+        "core": {
+          "c1": "Núcleo de Sabre de Mithril",
+          "c2": "Subnúcleo de Sabre de Mithril I",
+          "c3": "Subnúcleo de Sabre de Mithril II",
+          "c4": "Subnúcleo de Sabre de Mithril III"
+        }
       },
       "ts": {
-        "name": "Twin Stinger"
+        "name": "Fio Duplo",
+        "core": {
+          "c1": "Núcleo de Fio Duplo",
+          "c2": "Subnúcleo de Fio Duplo I",
+          "c3": "Subnúcleo de Fio Duplo II",
+          "c4": "Subnúcleo de Fio Duplo III"
+        }
       }
     },
     "t": {
       "lg": {
-        "name": "Leather Gloves",
+        "name": "Luvas de Couro",
         "core": {
-          "c1": "Leather Gloves Core",
-          "c2": "Leather Gloves Sub-Core I",
-          "c3": "Leather Gloves Sub-Core II",
-          "c4": "Leather Gloves Sub-Core III",
-          "c5": "Leather Gloves Sub-Core IV",
-          "c6": "Leather Gloves Sub-Core V"
+          "c1": "Núcleo de Luvas de Couro",
+          "c2": "Subnúcleo de Luvas de Couro I",
+          "c3": "Subnúcleo de Luvas de Couro II",
+          "c4": "Subnúcleo de Luvas de Couro III",
+          "c5": "Subnúcleo de Luvas de Couro IV",
+          "c6": "Subnúcleo de Luvas de Couro V"
         }
       },
       "mk": {
-        "name": "Metal Knuckles"
+        "name": "Soqueiras de Aço",
+        "core": {
+          "c1": "Núcleo de Soqueiras de Aço",
+          "c2": "Subnúcleo de Soqueiras de Aço I",
+          "c3": "Subnúcleo de Soqueiras de Aço II",
+          "c4": "Subnúcleo de Soqueiras de Aço III",
+          "c5": "Subnúcleo de Soqueiras de Aço IV",
+          "c6": "Subnúcleo de Soqueiras de Aço V"
+        }
       },
       "ss": {
-        "name": "Sonic Strikers"
+        "name": "Socos Sônicos",
+        "core": {
+          "c1": "Núcleo de Socos Sônicos",
+          "c2": "Subnúcleo de Socos Sônicos I",
+          "c3": "Subnúcleo de Socos Sônicos II",
+          "c4": "Subnúcleo de Socos Sônicos III",
+          "c5": "Subnúcleo de Socos Sônicos IV",
+          "c6": "Subnúcleo de Socos Sônicos V"
+        }
       },
       "fg": {
-        "name": "Feathered Gloves"
+        "name": "Luvas Emplumadas",
+        "core": {
+          "c1": "Núcleo de Feathered Glove",
+          "c2": "Subnúcleo de Feathered Glove I",
+          "c3": "Subnúcleo de Feathered Glove II",
+          "c4": "Subnúcleo de Feathered Glove III",
+          "c5": "Subnúcleo de Feathered Glove IV"
+        }
       },
       "mc": {
-        "name": "Mythril Claws"
+        "name": "Garras de Mithril",
+        "core": {
+          "c1": "Núcleo de Garras de Mithril",
+          "c2": "Subnúcleo de Garras de Mithril I",
+          "c3": "Subnúcleo de Garras de Mithril II",
+          "c4": "Subnúcleo de Garras de Mithril III"
+        }
       },
       "pp": {
-        "name": "Purple Pain"
+        "name": "Dor Púrpura",
+        "core": {
+          "c1": "Núcleo de Dor Púrpura",
+          "c2": "Subnúcleo de Dor Púrpura I",
+          "c3": "Subnúcleo de Dor Púrpura II",
+          "c4": "Subnúcleo de Dor Púrpura III"
+        }
       }
     }
   },
   "effects": {
-    "AP": "Attack Power +{{value}}",
-    "APHHP": "Attack Power +{{value}} with High HP",
-    "MAP": "Magic Attack Power +{{value}}",
-    "MAPHHP": "Magic Attack Power +{{value}} with High HP",
-    "DEF": "Defense +{{value}}",
-    "MDEF": "Magic Defense +{{value}}",
-    "SP": "Speed +{{value}}",
-    "MAXHP": "Max HP +{{value}}",
-    "MAXMP": "Max MP +{{value}}",
-    "AD%B": "Attack Damage {{value}}% Boost",
-    "AAD%B": "Aerial Attack Damage {{value}}% Boost",
-    "TD%B": "Tempest Damage {{value}}% Boost",
-    "PDR%G": "Physical Damage Reduction {{value}}% when Guarding",
-    "PDEFHHP": "Physical Defense +{{value}} with High HP",
-    "PDEFLHP": "Physical Defense +{{value}} with Low HP",
-    "MDR%G": "Magic Damage Reduction {{value}}% when Guarding",
-    "MDEFLHP": "Magic Defense +{{value}} with Low HP",
-    "MPR%B": "MP Regeneration {{value}}% Boost",
-    "ED%B": "Elemental Defense {{value}}% Boost",
-    "HSMPCR%": "Healing Spells MP Cost Reduction {{value}}%",
-    "PMSAD%B": "Punisher Mode Strong Attack Damage {{value}}% Boost",
-    "PMCD%B": "Punisher Mode Counter Damage {{value}}% Boost",
-    "OD%B": "Overcharge Damage {{value}}% Boost",
-    "CD%B": "Crippling Damage {{value}}% Boost",
-    "LBD%B": "Limit Break Damage {{value}}% Boost",
-    "LB%LHP": "Limit Break {{value}}% Boost with Low HP",
-    "SH%LHP": "Self-Healing {{value}}% Boost with Low HP",
-    "USD%B": "Unbridled Strength Damage {{vaue}}% Boost",
-    "BD%B": "Buff Duration {{value}}% Boost",
-    "CAC": "Concentration Activation {{value}}%",
-    "WACHT%B": "Weapon Ability Critical Hit Rate {{value}}% Boost",
-    "MAT": "New Materia",
-    "REPRIEVE": "Morto que não morreu",
-    "TO": "Bença das fada",
-    "STSIP": "Chupa tonto",
-    "BLS": "Chupa morto",
+    "AD%B": "Mais {{value}}% no dano de ataque",
+    "DEF": "Defesa +{{value}}",
+    "ED%B": "Mais {{value}}% na defesa contra elementos",
+    "HSMPCR%": "Magias de cura custam menos {{value}}% de PM",
+    "MAP": "Ataque mágico +{{value}}",
+    "MAT": "Novo espaço de Matéria",
+    "MAXHP": "Máx. de PV +{{value}}",
+    "MAXMP": "Máx. de PM +{{value}}",
+    "MDEF": "Defesa mágica +{{value}}",
+    "MDR%G": "Menos {{value}}% de dano mágico ao se defender",
+    "MPR%B": "Acelera a recuperação de PM em {{value}}%",
+    "PDR%G": "Menos {{value}}% de dano físico ao se defender",
+    "REPRIEVE": "Adiamento",
+    "TD%B": "Mais {{value}}% no dano da Tempestade",
+    "FIRED%B": "Mais +{{value}}% no dano de fogo",
+    "ICED%B": "Mais +{{value}}% no dano de gelo",
+    "LIGHTD%B": "Mais +{{value}}% no dano de eletricidade",
+    "WINDD%B": "Mais +{{value}}% no dano de vento",
+    "M%BFHP": "Mais {{value}}% de magia com a barra de PM cheia",
+    "IDD%B": "Mais {{value}}% na duraçāo de malefícios que você causa",
+    "ASMPCR%": "Magias de ataque custam menos {{value}}% de PM",
+    "TO": "Troca Justa",
+    "DR": "Resistência a malefícios +{{value}}",
+    "BD%B": "Mais {{value}}% na duraçāo de benefícios",
+    "EMD%B": "Mais {{value}}% no dano elemental de matérias",
+    "STSIP": "Sifāo Atordoante",
+    "BLS": "Sanguessuga",
+    "M%BFMP": "Mais {{value}}% de magia com a barra de PM cheia",
+    "PDEFHHP": "Defesa física +{{value}} quando há muita vida",
+    "MDEFHHP": "Defesa mágica +{{value}} quando há muita vida",
+    "LB%BLHP": "Mais {{value}}% no limite especial quando há pouca vida",
+    "MAPHHP": "Ataque mágico +{{value}} quando há muita vida",
+    "PDEFLHP": "Defesa física +{{value}} quando há pouca vida",
+    "MDEFLHP": "Defesa mágica +{{value}} quando há pouca vida",
+    "CHD%B": "Mais {{value}}% no dano crítico",
+    "CD%B": "Mais {{value}}% de dano com mutilaçāo",
+    "CHR%BLHP": "Mais {{value}}% na chance do crítico quando há pouca vida",
+    "CHR%B": "Mais {{value}}% na change de crítico",
+    "AP": "Ataque físico +{{value}}",
+    "OD%B": "Mais {{value}}% no dano de Sobrecarga",
+    "LBD%B": "Mais {{value}}% no dano de limites especiais",
+    "WACHR%B": "Mais {{value}}% na change de crítico das habilidades de arma",
+    "ATBCR%B": "Mais {{value}}% de aceleraçāo de BTA",
+    "SH%LHP": "Mais {{value}}% de autocura quando há pouca vida",
+    "PMSAD%B": "Mais {{value}}% no dano de ataque potente no modo Justiceiro",
+    "PMCD%B": "Mais {{value}}% no dano de contra-ataque no modo Justiceiro",
+    "LUCK": "Sorte +{{value}}",
+    "AAD%B": "Mais {{value}}% no dano de ataque aéreo",
+    "APHHP": "Ataque físico +{{value}} quando há muita vida",
+    "MAXDR%G": "Menos {{value}}% de dano mágico ao se defender",
+    "SP": "Velocidade +{{value}}",
+    "CAC": "Ativaçāo de concentraçāo: {{value}}%",
+    "USD%B": "Mais {{value}}% no dano de Poder Imensurável",
+    "RA%B": "Mais {{value}}% ao atacar por tràs",
     "details": {
-      "REPRIEVE": "Evita morrer depois de uma bordoada. Uma vez por batalha ta bom né?",
-      "TO": "Apanhou feito criança, ganha poder das fadinhas.",
-      "STSIP": "Da uma de dracula, o chupador, e ganha vida de volta.",
-      "BLS": "Da uma de dracula necrófilo."
+      "REPRIEVE": "Impede a incapacitação uma vez por combate. Não funciona contra morte instantânea nem quando há apenas 1 PV.",
+      "TO": "Recupera PM ao sofrer bastante dano.",
+      "STSIP": "Recupera PV ao causar dano com habilidades exclusivas em um inimigo atordoado.",
+      "BLS": "Recupera PV quando os inimigos sāo derrotados nas batalhas."
     }
   }
 }

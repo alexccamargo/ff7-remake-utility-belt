@@ -40,10 +40,10 @@ const Character = ({ character, weaponsUserData, totalSP }) => {
               </Link>
             </Typography>
             <Box>
-            <Typography className={classes.materiaLabel} variant="subtitle1"><strong>SP Remaing: </strong>{totalSP - effectTotalSP}</Typography>
+              <Typography className={classes.materiaLabel} variant="subtitle1"><strong>{t("common.SP-remaing")}: </strong>{totalSP - effectTotalSP}</Typography>
             </Box>
             <Box display={"flex"} alignItems={"top"} mb={2}>
-              <Typography className={classes.materiaLabel} variant="subtitle1"><strong>Materia Slot:</strong></Typography>
+              <Typography className={classes.materiaLabel} variant="subtitle1"><strong>{t("common.materia-slots")}:</strong></Typography>
               <Box display={"inline-block"} position={"relative"} ml={1}>
                 <MateriaSlots singleMateria={materiaState.singleMateria} connectedMateria={materiaState.connectedMateria}></MateriaSlots>
               </Box>
