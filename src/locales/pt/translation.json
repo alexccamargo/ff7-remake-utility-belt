@@ -1,4 +1,7 @@
 {
+  "app": {
+    "language": "PT"
+  },
   "character": {
     "a": "Aerith",
     "b": "Barret",

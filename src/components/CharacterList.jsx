@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 
 import { Link } from 'react-router-dom'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 import './CharacterList.css'
 import { Grid } from '@material-ui/core'
@@ -13,8 +13,9 @@ const useStyles = makeStyles({
   },
 })
 
-const CharacterList = ({ characters, t }) => {
+const CharacterList = ({ characters }) => {
   const classes = useStyles()
+  const { t } = useTranslation();
 
   return (
     <Grid container spacing={3}>
@@ -35,4 +36,4 @@ const CharacterList = ({ characters, t }) => {
   )
 }
 
-export default translate()(CharacterList)
+export default CharacterList

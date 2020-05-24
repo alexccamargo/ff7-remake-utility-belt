@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { translate } from 'react-i18next'
 
 import CharacterList from '../components/CharacterList'
 
@@ -30,4 +29,4 @@ const mapStateToProps = state => ({
   hasErrors: { characters: state.characters.hasErrors },
 })
 
-export default connect(mapStateToProps)(translate()(CharacterListPage))
+export default connect(mapStateToProps)(CharacterListPage)

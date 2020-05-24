@@ -1,4 +1,7 @@
 {
+  "app": {
+    "language": "EN"
+  },
   "common": {
     "AP":"Attack Power",
     "MAP":"Magic Attack Power",

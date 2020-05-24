@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { Box } from '@material-ui/core';
 
 import {
@@ -12,7 +12,8 @@ import {
   MAX_MP,
 } from '../../store/data/effect'
 
-const BasicStatsTable = ({ t, stats }) => {
+const BasicStatsTable = ({ stats }) => {
+  const { t } = useTranslation();
 
   const getLabelValue = (type) => {
     return (
@@ -43,4 +44,4 @@ const BasicStatsTable = ({ t, stats }) => {
   )
 }
 
-export default translate()(BasicStatsTable)
+export default BasicStatsTable

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { useParams } from 'react-router'
-import { translate } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import Character from '../components/Character'
@@ -10,8 +9,12 @@ import { setSPAmount, storeUserData } from '../store/actions/userDataActions'
 import { selectUserDataByCharacter, selectWeaponUserDataByCharacter } from '../store/selectors/userDataSelector'
 import { selectCharacter } from '../store/selectors/characterSelector'
 import { Typography, Box, TextField } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
 
-const CharacterPage = ({ t }) => {
+const CharacterPage = () => {
+
+  const { t } = useTranslation();
+
   let { id } = useParams()
   const character = useSelector(state => selectCharacter(state, id))
   const characterUserData = useSelector(state => selectUserDataByCharacter(state, id))
@@ -52,4 +55,4 @@ const CharacterPage = ({ t }) => {
   )
 }
 
-export default translate()(CharacterPage)
+export default CharacterPage

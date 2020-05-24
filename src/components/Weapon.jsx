@@ -16,7 +16,7 @@ import { Switch, IconButton, Popover, Typography } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 import './Weapon.css'
 import * as effectTypes from '../store/data/effect'
@@ -78,7 +78,9 @@ const spEffect = [
   effectTypes.BLOODSUCKER,
 ]
 
-const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEffectsChange }) => {
+const Weapon = ({ character, weapon, spAmount, selectedEffects, onSelectedEffectsChange }) => {
+  const { t } = useTranslation();
+  
   const classes = useStyles()
 
   console.log(weapon.cores || [])
@@ -248,4 +250,4 @@ const Weapon = ({ t, character, weapon, spAmount, selectedEffects, onSelectedEff
   )
 }
 
-export default translate()(Weapon)
+export default Weapon

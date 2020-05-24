@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { ListItem, List, Box, Typography, Paper, makeStyles } from '@material-ui/core'
 import { getStats, getConnectedAndSingleMateriaCounts, getTotalSP } from '../shared/StatsCalculator'
 import BasicStatsTable from './Weapon/BasicStatsTable'
@@ -17,7 +17,9 @@ const useStyles = makeStyles({
   }
 })
 
-const Character = ({ t, character, weaponsUserData, totalSP }) => {
+const Character = ({ character, weaponsUserData, totalSP }) => {
+  const { t } = useTranslation();
+
   const classes = useStyles()
   const weapons = character.weapons || []
 
@@ -65,4 +67,4 @@ const Character = ({ t, character, weaponsUserData, totalSP }) => {
   )
 }
 
-export default translate()(Character)
+export default Character
