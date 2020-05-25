@@ -8,6 +8,7 @@ import { selectCharacter } from '../store/selectors/characterSelector'
 import { selectUserDataByCharacter, selectWeaponUserData } from '../store/selectors/userDataSelector'
 import { setSelectedEffects, storeUserData } from '../store/actions/userDataActions'
 import { useTranslation } from 'react-i18next'
+import { Box } from '@material-ui/core'
 
 const WeaponPage = () => {
   const { t } = useTranslation();
@@ -40,10 +41,10 @@ const WeaponPage = () => {
   }
 
   return (
-    <div>
+    <Box ml={2}>
       <Link to={`/character/${id}`}>{t("common.back-to-weapon")}</Link>
       {renderCharacter()}
-    </div>
+    </Box>
   )
 }
 

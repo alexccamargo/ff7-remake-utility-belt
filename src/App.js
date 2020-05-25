@@ -6,6 +6,8 @@ import {
   Redirect,
 } from 'react-router-dom'
 
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux'
 import { makeStyles, AppBar, Toolbar, Typography, Button, Menu, MenuItem, Box } from '@material-ui/core'
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const App = () => {
+const App = ({ width }) => {
   const { t, i18n } = useTranslation();
 
   const classes = useStyles();
@@ -61,7 +63,7 @@ const App = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Final Fantasy 7 Remake - Utils
+            {isWidthUp('sm', width) ? "Final Fantasy 7 Remake - Utils" : "FF7 Remake - Utils"}
           </Typography>
           <Button color="inherit" startIcon={<TranslateIcon />} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
             {t("app.language")}
@@ -93,4 +95,4 @@ const App = () => {
   )
 }
 
-export default App
+export default withWidth()(App)

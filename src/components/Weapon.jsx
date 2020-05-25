@@ -80,11 +80,7 @@ const spEffect = [
 
 const Weapon = ({ character, weapon, spAmount, selectedEffects, onSelectedEffectsChange }) => {
   const { t } = useTranslation();
-
   const classes = useStyles()
-
-  console.log(weapon.cores || [])
-  console.log((weapon.cores || []).flatMap(c => c.effects))
 
   const [selectedEffectState, setSelectedEffectState] = useState([...selectedEffects])
   const [amountState, setAmountState] = useState(spAmount)
